@@ -1,0 +1,128 @@
+<header class="header-main">
+    <div class="header-title">
+      <h1 class="first-title">ArteSan APP</h1>
+   
+    </div>   
+      <div class="header-logo">
+         <a href="/">
+          <img src="/images/logo.png" alt="logo ArtesanApp">
+        </a>
+      </div>
+      <div class="header-busqueda">
+          <form action="/search" method="GET">
+              <input class="header-barra-busqueda" type="text" name="productSearch" placeholder="Buscar productos"  required>
+              <button class="header__search-button" type="submit">Buscar</button>
+          </form>
+          <nav class="header-caja-links">
+            <ul>
+              <li>
+                <a href="/products" class="header-nav-link">Productos</a>
+              </li>
+              <li>
+                <a href="/users/register" class="header-nav-link">Registrate</a>
+              </li>
+              <li>
+                <a href="/products/create" class="header-nav-link">Vender</a>
+              </li>
+              <li>
+                <a href="/about" class="header-nav-link">Nosotros</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+     <button class="header-log-in" > 
+      <% if (typeof session.user != "undefined") { %>
+  <div class="dropdown">
+    <i class="fa-regular fa-user"></i>
+    <div class="dropdown-content">
+      <a href="#">Sesion Iniciada</a>
+      <a href="users/showProfile">Mis Datos</a>
+    <% if (session.user.rol === 1) { %>
+        <a href="/admin">Administrador</a>
+    <% } %>
+      <% } else {%>
+        <div class="dropdown">
+          <i class="fa-regular fa-user"></i>
+          <div class="dropdown-content">
+            <a href="/users/login">Iniciar Sesion</a>
+          </div>
+          <% } %>
+         </div>
+     </button>
+     <form action="/users/destroy" method="post">
+     <div class="dropdown">
+       
+       <button class="header-log-in" type="submit">
+       <i class="fa-solid fa-arrow-right-from-bracket"></i>
+       <div class="dropdown-content">
+       
+        </div>
+          </div>
+  
+        </button>
+    </div>
+    </form>
+     
+     <button class="header-go-cart"> 
+       <a href="/productCart">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </a>
+     </button>
+     <!-- The overlay -->
+<div id="myNav" class="overlay">
+
+  <!-- Button to close the overlay navigation -->
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <!-- Overlay content -->
+  <div class="overlay-content">
+    <% if (typeof session.user != "undefined") { %>
+      <a href="#">Sesion Iniciada</a>
+      <a href="/users/showProfile">Mis Datos</a>
+    <% if (session.user.rol === "admin") { %>
+      <a href="/admin">Administrador</a>
+    <% } %>
+    <% } else {%>
+      <a href="/users/login">Iniciar Sesion</a>
+      <form action="/users/destroy" method="post">
+        <div class="dropdown">
+          
+          <button class="header-log-in" type="submit">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <div class="dropdown-content">
+          
+           </div>
+             </div>
+     
+           </button>
+          </div>
+          </form>
+          <% } %>
+        </div>
+  
+
+</div>
+
+<!-- Use any element to open/show the overlay navigation menu -->
+<span class="burger-btn"onclick="openNav()"><i class="fa-solid fa-bars" style="color: #ae8bbb;"></i></i></span>
+
+
+
+
+     <!-- <div class="header-burger-menu" >
+      <div class="header-burger-menu-close">x</div>
+      <div class="header-burger-menu-barra">
+        <i class="fas fa-bars"></i>
+        <nav>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </nav>
+       </div>
+     </div>
+      -->
+      
+  </header>

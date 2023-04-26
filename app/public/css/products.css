@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+main.products-main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px auto;
+    padding: 5px;
+}
+
+main.products-main aside.products-aside{
+    border: 3px solid black;
+    width: 100%;
+    font-size: 30px;
+}
+main.products-main aside.products-aside div ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+main.products-main section.products-all-products{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+main.products-main section.products-all-products article.products-card{
+    border: 3px solid black;
+    margin-top: 0.5rem;
+    background: var(--blanco);
+}
+
+main.products-main section.products-all-products article.products-card img{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+main div.edit-btn{
+    box-shadow: 3px 3px 15px white;
+    border-radius: 13px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    margin-top: 5px;
+    width: 100%;
+    height: 20px;
+    cursor: pointer;
+    
+}
+main div.edit-btn:hover{
+    transform: scale(1.1);
+    transition: all 1s;
+
+}
+main div.edit-btn a{
+    border-radius: 15px;
+    width: 50px;
+    height: 20px;
+    background-color: white;
+    color: black;
+    font-size: 0.8rem;
+    text-align: center;
+    font-family: var(--Milonga);
+    font-style: italic;
+    text-decoration: none;
+
+}
+main div.edit-btn button {
+    border-radius: 15px;
+    width: 60px;
+    height: 20px;
+}
+
+/* MEDIAQUERY START */
+@media screen and (min-width:768px){
+    main.products-main section.products-all-products{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        
+    }
+    main.products-main section.products-all-products article.products-card{
+        width: 45%;
+    }
+}
+@media screen and (min-width:1024px){
+    main.products-main section.products-all-products article.products-card{
+        width: 23%;
+    }
+}

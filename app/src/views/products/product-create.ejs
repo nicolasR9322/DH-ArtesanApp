@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/head") %> 
+<body>
+    <%-include("./partials/header") %> 
+    <main class="product-create">
+        <form action="/products/create" method="POST" class="product-create-form" enctype="multipart/form-data">
+            <label for="">Nombre:
+                <input type="text" name="name">
+            </label>
+            <label for="">Descripcion:
+                <input type="text" name="description">
+            </label>
+            <label for="file" class="product-create-label-file">Subir imagen
+                <input type="file" id="file" name="image" class="product-create-input-file" value="placeholder.png">
+            </label>
+            <label for="">Categoria:
+                <input type="text" name="category">
+            </label>
+            <label for="">Color:
+                <input type="text" name="color">
+            </label>
+            <label for="">Precio:
+                <input type="number" name="price">
+            </label>
+            <div class="product-create-div-button">
+                <button type="reset" class="product-create-form-reset">Restablecer</button>
+                <button type="submit" class="product-create-form-submit">Grabar</button>
+            </div>
+            
+        </form>
+    </main>
+
+    <%-include("./partials/footer") %> 
+</body>
+</html>

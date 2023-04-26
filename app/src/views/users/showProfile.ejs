@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/head") %> 
+<body>
+    <%-include("./partials/header") %> 
+    
+    <main class="show-profile-main">
+        
+        <section class="show-profile">
+            <p class="show-profile-center"> MIS DATOS</p>
+
+            <div class="row">
+                <div class="column">
+                  <div class="card">
+                    <img src="/images/avatar/default-image.png"></a>
+
+
+                    <div class="container">
+                        <ul>
+                            <li><p> Categoria/Rol : <%= session.user.rol %></p></li>
+                            <li><p> Nombre de usuario : <%= name %></p> </li>
+                            <li><p> Direccion : <%= "Buenos Aires" %></p> </li>
+                            <li><p> Mail de contacto :<article class="show-profile">
+                                <p class="ct-mail"> <%= email %></p></li>
+                    </ul>
+                     
+                     
+                    </div>
+                  </div>
+                </div>
+           
+            </article>
+          
+            </article>
+        </section>
+        <div class="show-profile-center-button">
+            <a href="/users/profile">
+                <button class="show-profile-update-button">
+                    editar perfil
+
+                </button>
+              </a>
+        </div>
+                
+          
+    <form action="/users/delete/<%= session.user.id %>?_method=DELETE" method="post" class="show-profile-form-main">
+        <button type="submit" class="show-profile-delete-button">borrar</button>
+    </form>
+
+    <div class="show-profile-center-button">
+        <a href="/">
+            <button class="show-profile-update-button">
+                Volver al Home
+
+            </button>
+          </a>
+    </div>
+</main>
+
+    <%-include("./partials/footer") %> 
+    <%-include("./partials/scripts") %> 
+
+</body>
+</html>

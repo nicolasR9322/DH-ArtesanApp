@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/head") %> 
+    <body>
+        <main class="login-main">
+
+        
+    <div class="form-container">
+        <h2>Ingresar</h2>
+        <hr>
+        <div class="login-logo">
+            <!-- <div class="logo-container">
+            <a href="/"><img src="/images/logo.png" alt="logo ArtesApp"></a></div>
+         </div> -->
+        <form action="/users/login" method="post">
+            <div class="form">
+                <div class="input-container">
+                    <input class="input-style" type="email" name="email" placeholder="Ingrese su email" value="<%= locals.old && old.email %>">
+                    <% if (locals.errors && errors.email) { %>
+                        <span class="error-message"><%= errors.email.msg %></span>
+                    <% } %>
+                </div>
+                <div class="input-container">
+                    <input class="input-style" type="password" name="pass" placeholder="Ingrese su contraseña">
+                    <% if (locals.errors && errors.pass) { %>
+                        <span class="error-message"><%= errors.pass.msg %></span>
+                    <% } %>
+                </div>
+                <div class="check">
+                    <label for="recordar">  Recordarme </label>
+                    <input type="checkbox" name="recordar" id="recordar">
+                    
+                </div>
+                <div class="button-container">
+                    
+                    <button type="submit" class="btn-submit1">Ingresar</button>
+                </div>
+                <span><a href="">¿Olvidaste tu contraseña?</a></span>
+                <span><a href="/users/register">Aún no tengo cuenta</a></span>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

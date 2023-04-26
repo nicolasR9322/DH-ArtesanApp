@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Diplomata+SC&family=Libre+Franklin:wght@300&family=Milonga&family=Nerko+One&family=Parisienne&display=swap');
+@import url("/css/styles.css");
+@import url("/css/header-footer.css");
+@import url("/css/general.css");
+/* GENERALS */
+
+
+
+
+.detail-container{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+}
+
+/* Three columns side by side */
+.Detailrow{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 380px;
+  
+}
+.Detailcolumn {
+  /*   border: 1px solid white; */
+    border-radius: 15px;
+    margin:auto;
+    width: 90%;
+    margin-bottom: 16px;
+   
+  }
+  
+  /* Display the columns below each other instead of side by side on small screens */
+  @media screen and (max-width: 650px) {
+    .Detailcolumn{
+      width: 90%;
+      display: block;
+    }
+  }
+  
+  /* Add some shadows to create a card effect */
+  .DetailCard {
+    border: 1px solid white;
+    border-radius: 15px;
+  /*   width: 90%; */
+    margin:15px auto;
+    box-shadow: 2px 4px 10px  rgb(255, 255, 255);
+  }
+  .DetailCard img.imgDetail{
+    width: 90%;
+    margin:10px auto;
+    padding:10px;
+    border-radius: 25px;
+  }
+  img.imgDetail:hover{
+  transform: scale(1.1);
+  transition: all 1s;
+  }
+  /* Some left and right padding inside the container */
+  .Detailcontainer {
+    width: 100%;
+  }
+  
+  /* Clear floats */
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .information-row{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 380px;  }
+  
+  .Detail-title {
+    color: black;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 2rem;
+  }
+  .product-description{
+    width: 100%;
+    border-radius: 25px;
+    padding: 5px;
+    
+    
+  }
+  .detail-description{
+    width: 100%;
+    background-color: var(--beige);
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 50px;
+    height: 150px;
+    font-size: 1.5rem;
+    font-family: var(--Franklin);
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  div.information-column {
+    display:flex;
+    width: 100%;
+    position: relative;
+    padding: 5px;
+   
+}
+information-column{
+    border: 1px solid white;
+    border-radius: 15px;
+    width: 90%;
+    margin:15px auto;
+    box-shadow: 2px 4px 10px  rgb(255, 255, 255);
+}
+.Detail-information{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 15px;
+    width: 90%;
+    margin:15px auto;
+    box-shadow: 2px 4px 10px  rgb(255, 255, 255);
+}
+
+.price-discount{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+div.price p{
+    font-family: var(--Franklin);
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    text-align: left;
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+div.Detail-information div.discount{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1rem;
+    color: green;
+    margin: 10px 10px 10px 30px;
+    font-family: var(--Franklin);
+}
+
+div.Detail-information button.cart-btn{
+    display: flex;
+    font-family: var(--Franklin);
+    position: absolute;
+    top: 299px;
+    right: 29px;
+    width: 125px;
+    height: 40px;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+
+}
+div.Detail-information button.cart-btn h4 {
+   margin: auto;
+}
+/* PRODUCT INFORMATION */
+
+div.Detail-information h5{
+    font-style: italic;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 20px;
+}
+
+div.Detail-information div.information-list ul {
+    display: block;
+    width: 100%;
+    list-style-type:disc;
+    font-size: 1rem;
+    padding: 15px;
+    max-width: 600px;
+    position: relative;
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+div.Detail-information div.information-list i {
+    color: var(--beige);
+    padding-right: 10px;
+    text-shadow: 2px 2px 3px black;
+}
+div.Detail-information div.information-list ul li{
+    margin: 20px;
+    font-family: var(--Franklin);
+    font-weight: 900;
+    text-decoration: solid;
+
+}
+
+
+div.Detail-information div.information-list button.btn-calculate{
+    display: flex;
+    bottom: 80px;
+    right: 165px;
+    width: 125px;
+    height: 40px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    font-family: var(--Franklin)
+}
+
+div.finalize-purchase-btn{
+    padding: 7px;
+    
+}
+.information-btn{
+    display: flex;
+    justify-content: space-around;
+}
+
+a.link{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+div.Detail-information div.finalize-purchase-btn button.goCart-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 340px;
+    border-radius: 15px;
+    max-width: 700px;
+    font-size: 1.2rem;
+    margin: 50px 1px 35px;
+    width: 100%;
+    font-family: var(--Franklin)
+}
+div.title-similar-products{
+    display: none;
+}
+/* END PRODUCTS */
+@media(min-width: 768px){
+    .information-row{
+        width: 450px;
+    }
+    .Detailrow{
+        max-width: 400px;
+    }
+    .price-discount .price p{
+        font-size: 2.2rem;
+    }
+    .price-discount .discount span{
+        margin-left: 20px;
+     font-size: 1rem;
+    }
+    }
+    .detail-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    div.Detail-information div.information-list ul{
+        max-width: 600px;
+        font-size: 1.5rem;
+    }
+    
+@media(min-width: 1024px){
+  .information-row{
+    width: 100%;
+    max-width: 1000px;
+}
+.Detailrow{
+  max-width: 1000px;
+}
+.price-discount .price p{
+  margin-left: 150px;
+  padding: 20px;
+}
+div.Detail-information div.information-list ul{
+  max-width: 800px;
+  font-size: 1.5rem;
+}
+div.information-list h5{
+  font-size: 2rem;
+}
+div.Detail-information div.finalize-purchase-btn button.goCart-btn{
+  margin: 20px auto;
+
+}
+.DetailCard img.imgDetail{
+  width: 70%;
+}
+}

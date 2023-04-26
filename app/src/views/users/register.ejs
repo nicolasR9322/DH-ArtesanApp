@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+     <%-include("./partials/head") %> 
+<body>
+   <main class="register-main">
+    <div class="form-container">
+        <h2>Registro</h2>
+        <hr>
+        <div class="register-logo">
+            <div class="logo-container">
+            <a href="/"><img src="/images/logo.png" alt="logo ArtesApp"></a></div>
+         </div>
+        <form action="/users/register" method="POST">
+            <div class="form">
+            <div class="input-container">
+                <input class="input-style" type="name" name="name" placeholder="Ingrese su nombre y apellido" value="<%= locals.old && old.name %>">
+                <% if (locals.errors && errors.name) { %>
+                    <span class="error-message"><%= errors.name.msg %></span>
+                <% } %>
+            </div>
+            <div class="input-container">
+                <input class="input-style" type="email" name="email" placeholder="Ingrese su email" value="<%= locals.old && old.email %>">
+                <% if (locals.errors && errors.email) { %>
+                    <span class="error-message"><%= errors.email.msg %></span>
+                <% } %>
+            </div>
+            <div class="input-container">
+                <input class="input-style" type="password" name="pass" placeholder="Ingrese su contraseña">
+                <% if (locals.errors && errors.pass) { %>
+                    <span class="error-message"><%= errors.pass.msg %></span>
+                <% } %>
+            </div>
+            <div class="input-container">
+                <input class="input-style" type="password" name="pass2" placeholder="Re-ingrese su contraseña">
+                <% if (locals.errors && errors.pass2) { %>
+                    <span class="error-message"><%= errors.pass2.msg %></span>
+                <% } %>
+            </div>
+            <div class="check">
+            <div class="ter">
+                <label for="recordar">  Acepto los <a href="">términos y condiciones</a> </label>
+                <input type="checkbox" name="terms" id="recordar"> 
+                <% if (locals.errors && errors.terms) { %>
+                    <span class="error-message"><%= errors.terms.msg %></span>
+                <% } %>
+            </div>
+            <% if (locals.errors && errors.name) { %>
+                <span class="error-message"><%= errors.name.msg %></span>
+            <% } %>
+            </div>
+            <div class="button-container">        
+                <button type="submit" class="btn btn-submit">Registrarme</button>
+            </div> 
+                <span><a href="/users/login">Ya tengo cuenta</a></span>
+            </div>
+        </form>
+    </div>
+</main>
+<%-include("./partials/scripts") %> 
+</body>
+</html>
