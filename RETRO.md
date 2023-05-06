@@ -18,3 +18,33 @@ Las principales conclusiones sacadas del Sprint 3 sobre nuestro trabajo grupal f
 -   Dejar de hacer: procastinar
 -   Hacer menos: desorden en el codigo (cosas comentadas, basura, codigo que no se usa estilos)
 -   Seguir haciendo: seguir organizandonos bien, cumpliendo las tareas en tiempo y forma
+
+Las principales conclusiones sacadas del Sprint 4 sobre nuestro trabajo grupal fueron:
+-   Hacer mas : comunicacion - comunicarse cuando no se llegan las tareas a tiempo o si necesitan ayuda
+-   Empezar a hacer: respetar los plazos de entrega para que la tarea no se amontone
+-   Dejar de hacer: dejar las tareas para ultimo momento, atrasando al resto del equipo
+-   Hacer menos: procastinar
+-   Seguir haciendo: cumpliendo con las consignas
+
+Las principales conclusiones sacadas del Sprint 5 sobre nuestro trabajo grupal fueron:
+-   Hacer mas : comunicacion - comunicarse cuando no se llegan las tareas a tiempo o si necesitan ayuda
+-   Empezar a hacer: respetar los plazos de entrega para que la tarea no se amontone
+-   Dejar de hacer: dejar las tareas para ultimo momento, atrasando al resto del equipo
+-   Hacer menos: procastinar
+-   Seguir haciendo: cumpliendo con las consignas
+
+Las principales conclusiones sacadas del Sprint 6 sobre nuestro trabajo grupal fueron:
+-   Hacer mas : comunicacion - comunicarse cuando no se llegan las tareas a tiempo o si necesitan ayuda
+-   Empezar a hacer: respetar los plazos de entrega para que la tarea no se amontone
+-   Dejar de hacer: dejar las tareas para ultimo momento, atrasando al resto del equipo
+-   Hacer menos: procastinar
+-   Seguir haciendo: cumpliendo con las consignas
+
+---- Nota: la desercion del equipo hace que las siguientes retrospectivas sean individuales ----
+
+Las principales conclusiones sacadas del Sprint 7 son:
+-   Hacer mas : 
+-   Empezar a hacer: 
+-   Dejar de hacer: 
+-   Hacer menos: 
+-   Seguir haciendo:
