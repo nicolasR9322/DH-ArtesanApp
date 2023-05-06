@@ -24,7 +24,9 @@
     }
 
     body{
-        background: linear-gradient(var(--beige), var(--violeta),var(--beige));    
+        background: url("/images/stars.gif");
+        background-repeat: repeat;
+           
 }
 .is-valid{
   border: 3px solid green !important; 
