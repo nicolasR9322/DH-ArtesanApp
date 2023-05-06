@@ -26,6 +26,12 @@
     body{
         background: linear-gradient(var(--beige), var(--violeta),var(--beige));    
 }
+.is-valid{
+  border: 3px solid green !important; 
+}
+.is-invalid{
+  border: 3px solid red !important;
+}
 
 ::-webkit-scrollbar {
     width: 10px;

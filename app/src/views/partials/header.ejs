@@ -36,10 +36,18 @@
     <i class="fa-regular fa-user"></i>
     <div class="dropdown-content">
       <a href="#">Sesion Iniciada</a>
-      <a href="users/showProfile">Mis Datos</a>
-    <% if (session.user.rol === 1) { %>
+      <a href="/users/showProfile">Mis Datos</a>
+      <form action="/users/destroy" method="post">
+      <div class="dropdown">
+        <button class="header-log-in" type="submit">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+       </button>
+     </div>
+     </form>
+      <% if (session.user.rol === 1) { %>
         <a href="/admin">Administrador</a>
-    <% } %>
+        <% } %>
+      </div>
       <% } else {%>
         <div class="dropdown">
           <i class="fa-regular fa-user"></i>
@@ -49,19 +57,6 @@
           <% } %>
          </div>
      </button>
-     <form action="/users/destroy" method="post">
-     <div class="dropdown">
-       
-       <button class="header-log-in" type="submit">
-       <i class="fa-solid fa-arrow-right-from-bracket"></i>
-       <div class="dropdown-content">
-       
-        </div>
-          </div>
-  
-        </button>
-    </div>
-    </form>
      
      <button class="header-go-cart"> 
        <a href="/productCart">

@@ -1,3 +1,4 @@
+const {validationResult} = require("express-validator");
 const db = require("../database/models");
 
 module.exports = {
@@ -30,52 +31,98 @@ module.exports = {
     },
 
     create:(req,res) => {
-        res.render("product-create",{
-            session: req.session
+        db.categories.findAll({
+
+        })
+        .then((categories) => {
+            res.render("product-create",{
+                session: req.session,
+                categories
+            })
+
         })
     },
     storage:(req,res) => {
         let data = req.body;
+        let errors = validationResult(req);
 
-        const database = db.products
 
-        let newProduct = {
-            name:data.name,
-            description:data.description,
-            image: req.file ? req.file.filename : "placeholder.png",
-            category:data.category,
-            price:data.price,
-            categoriesId: 1
-        }
-
-        database.create(newProduct)
-            .then(() => {
-
-                res.redirect("/products")
+        if(req.fileValidationError){
+            errors.errors.push({
+                value:"",
+                msg: req.fileValidationError,
+                param: "image",
+                location:"file"
             })
+           }
+           if(!req.file){
+            errors.errors.push({
+                value:"",
+                msg: "el producto debe tener una imagen",
+                param: "image",
+                location:"file"
+            })
+           }
+        if(errors.isEmpty()){
+            const database = db.products
+    
+            let newProduct = {
+                name:data.name,
+                description:data.description,
+                image: req.file ? req.file.filename : "placeholder.png",
+                category:data.category,
+                price:data.price,
+                categoriesId: data.category,
+                discount: data.discount
+            }
+    
+            database.create(newProduct)
+                .then(() => {
+    
+                    res.redirect("/products")
+                })
 
+        } else {
+            db.categories.findAll({
+
+            })
+            .then((categories) => {
+                res.render("product-create",{
+                    session: req.session,
+                    categories,
+                    errors: errors.mapped(),
+                    old:req.body,
+                })
+    
+            })
+        }
+        
     },
     edit: (req,res) => {
 
         const {id} = req.params
 
         const database = db.products
-
-        let data = database.findByPk(id, {
-            include: [
-                {
-                    association: "categories"
-                }
-            ]
-        })
-            .then((product) => {
-                res.render("product-edit", {
-                    ...product.dataValues,
-                    category: product.categories.name,
-                    color: "red",
-                    session: req.session
-                })
+       
+        const PRODUCTSALL = database.findByPk(id, {
+                include: [
+                    {
+                        association: "categories"
+                    }
+                ]
             })
+                
+        const CATEGORIESALL = db.categories.findAll()
+    
+            Promise.all([PRODUCTSALL,CATEGORIESALL])
+            .then(([PRODUCTSALL, CATEGORIESALL]) => {
+                    res.render("product-edit", {
+                        ...PRODUCTSALL.dataValues,
+                        categories: CATEGORIESALL,
+                        session: req.session,
+                        old:req.body
+                    })
+                })
 
     },
     update:(req,res) => {
@@ -83,19 +130,18 @@ module.exports = {
 
         const database = db.products;
 
-        let {name,description,price} = req.body;
+        let errors = validationResult(req);
 
-        database.findByPk(id)
-            .then((product) => {
-                
+        if(errors.isEmpty()){
+
+        const PRODUCTFOUND =  database.findByPk(id);
+        const CATEGORIESALL = db.categories.findAll()
+
+            Promise.all([PRODUCTFOUND,CATEGORIESALL])
+            .then((PRODUCTFOUND,CATEGORIESALL) => {
                 database.update({
-                    name,
-                    description,
-                    discount: 10,
-                    image: req.file ? req.file.filename : product.image,
-                    category:1,
-                    price,
-                    categoriesId: 1
+                    ...PRODUCTFOUND.dataValues,
+                    categories: CATEGORIESALL
                 }, {
                     where: {
                         id : id
@@ -106,9 +152,45 @@ module.exports = {
                 })
             })
 
-                        
+        } else {
+            if(req.fileValidationError){
+                errors.errors.push({
+                    value:"",
+                    msg: req.fileValidationError,
+                    param: "image",
+                    location:"file"
+                })
+               }
+               if(!req.file){
+                errors.errors.push({
+                    value:"",
+                    msg: "el producto debe tener una imagen",
+                    param: "image",
+                    location:"file"
+                })
+               }
 
+            const PRODUCTSALL = database.findByPk(id, {
+                include: [
+                    {
+                        association: "categories"
+                    }
+                ]
+            })
+                
+            const CATEGORIESALL = db.categories.findAll();
 
+            Promise.all([PRODUCTSALL, CATEGORIESALL])
+                .then(([PRODUCTSALL, CATEGORIESALL]) => {
+                    res.render("product-edit",{
+                        ...PRODUCTSALL.dataValues,
+                        categories: CATEGORIESALL,
+                        session: req.session,
+                        old:req.body,
+                        errors: errors.mapped(),
+                    })
+            })
+        }
 
     },
     

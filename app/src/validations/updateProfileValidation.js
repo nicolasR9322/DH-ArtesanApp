@@ -13,7 +13,7 @@ module.exports = [
         .isEmail().withMessage("debe ingresar un email valido")
     ,
     body("email")
-        .custom((value) => {
+        .custom((value, {req}) => {
 
             return DB.findOne({
                 where: {
@@ -21,7 +21,7 @@ module.exports = [
                 }
             })
             .then((user) => {
-                if(user){
+                if(!user){
                     return Promise.reject()
                 }
             })

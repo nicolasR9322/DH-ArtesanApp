@@ -6,6 +6,7 @@ const router = express.Router();
 const controller = require("../controllers/productController");
 const checkUserInSession = require("../middlewares/checkUserInSession");
 const { uploadImageProduct } = require("../middlewares/upload");
+const productValidator = require("../validations/productValidator");
 
 
 
@@ -18,11 +19,11 @@ router.get("/detail/:id" , productController.detail)
 
 // create
 router.get("/create",checkUserInSession,controller.create)
-router.post("/create",uploadImageProduct.single("image"),checkUserInSession,controller.storage)
+router.post("/create",uploadImageProduct.single("image"),productValidator,checkUserInSession,controller.storage)
 
 // edit
 router.get("/edit/:id",checkUserInSession, controller.edit)
-router.put("/edit/:id",uploadImageProduct.single("image"),checkUserInSession, controller.update)
+router.put("/edit/:id",uploadImageProduct.single("image"),productValidator,checkUserInSession, controller.update)
 
 //delete
 router.delete('/delete/:id',checkUserInSession, controller.destroy);

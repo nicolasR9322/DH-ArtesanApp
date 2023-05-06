@@ -67,17 +67,34 @@ module.exports = {
         res.redirect("/")
     },
     storeUser: (req,res) => {
-
        let data = req.body;
        const database = db.Users;
        let errors = validationResult(req);
+
+
+       if(req.fileValidationError){
+        errors.errors.push({
+            value:"",
+            msg: req.fileValidationError,
+            param: "avatar",
+            location:"file"
+        })
+       }
+       if(!req.file){
+        errors.errors.push({
+            value:"",
+            msg: "el usuario debe tener una imagen",
+            param: "avatar",
+            location:"file"
+        })
+       }
 
        if (errors.isEmpty()) {
            let newUser = {
                name:data.name,
                email:data.email,
                pass:data.pass,
-               avatar: req.file ? req.file.filename : "",
+               avatar: req.file ? req.file.filename : "default-image.png",
                rolId: 2
            };
 
@@ -130,30 +147,66 @@ module.exports = {
     },
     updateProfile: (req,res) => {
         let userDB = db.Users;
-
+        let errors = validationResult(req);
         let userId = req.session.user.id;
         //let user = userDB.find(user => user.id === userId);
         const {name,email,pass} = req.body;
         
-        let users = userDB.findByPk(userId)
-        .then((user) => {
-            userDB.update({
-                 name,
-                 email,
-                 pass
-            },{
-                where:{
-                    id: userId
-                }
+        if(req.fileValidationError){
+            errors.errors.push({
+                value:"",
+                msg: req.fileValidationError,
+                param: "avatar",
+                location:"file"
             })
-            .then(() => {
-                delete user.pass;
-                
-                req.session.user = user
-                
-                return res.redirect("/users/showProfile")
+           }
+           if(!req.file){
+            errors.errors.push({
+                value:"",
+                msg: "el usuario debe tener una imagen",
+                param: "avatar",
+                location:"file"
             })
-        })
+           }
+
+
+        if(errors.isEmpty()){
+            const {name,email,pass} = req.body;
+            let users = userDB.findByPk(userId)
+            .then((user) => {
+                userDB.update({
+                     name,
+                     email,
+                     pass
+                },{
+                    where:{
+                        id: userId
+                    }
+                })
+                .then(() => {
+                    delete user.pass;
+                    
+                    req.session.user = user
+                    
+                    return res.redirect("/users/showProfile")
+                })
+            })
+        }else {
+        let userId = req.session.user.id;
+
+        const database = db.Users
+
+        let data = database.findByPk(userId)
+            .then((user) => {
+                
+                res.render("userProfile", {
+                    session:req.session,
+                    ...user.dataValues,
+                    errors:errors.mapped(),
+                    old:req.body
+                })
+            })
+        }
 
     },
     deleteProfile:(req,res) => {

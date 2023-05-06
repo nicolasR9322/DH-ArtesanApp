@@ -7,19 +7,20 @@
     <main class="profile-main">
         <form action="/users/update?_method=PUT" method="post" class="profile-form-main">
             <div class="profile-div">
-                <label for="name">nombre
-                    <input type="text" name="name" value="<%= name %>">
+                <label for="name">Cambiar nombre
+                    <input type="text" name="name" value="<%= locals.old && old.name ? old.name : name %>">
                 </label>
+                <% if (locals.errors && errors.name) { %>
+                    <span class="error-message"><%= errors.name.msg %></span>
+                <% } %>
             </div>
             <div class="profile-div">
-                <label for="email">email
-                    <input type="email" name="email" value="<%= email %>">
+                <label for="pass">Cambiar password
+                    <input type="password" name="pass" value="<%= locals.old && old.pass ? old.pass : pass %>">
                 </label>
-            </div>
-            <div class="profile-div">
-                <label for="pass">password
-                    <input type="password" name="pass" value="<%= pass %>">
-                </label>
+                <% if (locals.errors && errors.pass) { %>
+                    <span class="error-message"><%= errors.pass.msg %></span>
+                <% } %>
             </div>
             <button type="submit" class="profile-update-button">Actualizar</button>
         </form>
@@ -27,7 +28,7 @@
             </article>
     </form>
     <div class="profile-center-button">
-        <a href="/user/showProfile">
+        <a href="/users/showProfile">
             <button class="profile-go-back-button">
                 volver al inicio
 

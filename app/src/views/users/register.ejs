@@ -6,35 +6,54 @@
     <div class="form-container">
         <h2>Registro</h2>
         <hr>
-        <div class="register-logo">
+        <!-- <div class="register-logo">
             <div class="logo-container">
             <a href="/"><img src="/images/logo.png" alt="logo ArtesApp"></a></div>
-         </div>
-        <form action="/users/register" method="POST">
+         </div> -->
+        <form action="/users/register" method="POST" enctype="multipart/form-data" id="form">
             <div class="form">
             <div class="input-container">
-                <input class="input-style" type="name" name="name" placeholder="Ingrese su nombre y apellido" value="<%= locals.old && old.name %>">
+                <input class="input-style" type="name" name="name" placeholder="Ingrese su nombre y apellido" value="<%= locals.old && old.name %>" id="name">
                 <% if (locals.errors && errors.name) { %>
                     <span class="error-message"><%= errors.name.msg %></span>
+                <% }else { %>
+                    <span id="nameErrors"></span>
                 <% } %>
             </div>
             <div class="input-container">
-                <input class="input-style" type="email" name="email" placeholder="Ingrese su email" value="<%= locals.old && old.email %>">
+                <input class="input-style" type="email" name="email" placeholder="Ingrese su email" value="<%= locals.old && old.email %>" id="email">
                 <% if (locals.errors && errors.email) { %>
                     <span class="error-message"><%= errors.email.msg %></span>
-                <% } %>
+                    <% }else { %>
+                        <span id="emailErrors"></span>
+                    <% } %>
             </div>
             <div class="input-container">
-                <input class="input-style" type="password" name="pass" placeholder="Ingrese su contraseña">
+                <input class="input-style" type="password" name="pass" placeholder="Ingrese su contraseña" id="pass">
                 <% if (locals.errors && errors.pass) { %>
                     <span class="error-message"><%= errors.pass.msg %></span>
-                <% } %>
+                    <% }else { %>
+                        <span id="pass1Errors"></span>
+                    <% } %>
             </div>
             <div class="input-container">
-                <input class="input-style" type="password" name="pass2" placeholder="Re-ingrese su contraseña">
+                <input class="input-style" type="password" name="pass2" placeholder="Re-ingrese su contraseña" id="pass2">
                 <% if (locals.errors && errors.pass2) { %>
                     <span class="error-message"><%= errors.pass2.msg %></span>
-                <% } %>
+                    <% }else { %>
+                        <span id="pass2Errors"></span>
+                    <% } %>
+            </div>
+            <div class="input-container">
+                <input class="input-style" type="file" name="avatar" id="avatar">
+                <% if (locals.errors && errors.avatar) { %>
+                    <span class="error-message"><%= errors.avatar.msg %></span>
+                    <% }else { %>
+                        <span id="avatarErrors"></span>
+                    <% } %>
+            </div>
+            <div id="avatarPreview" width="100" height="100">
+
             </div>
             <div class="check">
             <div class="ter">
@@ -44,10 +63,8 @@
                     <span class="error-message"><%= errors.terms.msg %></span>
                 <% } %>
             </div>
-            <% if (locals.errors && errors.name) { %>
-                <span class="error-message"><%= errors.name.msg %></span>
-            <% } %>
             </div>
+            <span id="#submitErrors"></span>
             <div class="button-container">        
                 <button type="submit" class="btn btn-submit">Registrarme</button>
             </div> 
@@ -56,6 +73,7 @@
         </form>
     </div>
 </main>
-<%-include("./partials/scripts") %> 
+
+<script src="/js/users/registerFrontValidation.js"></script>
 </body>
 </html>

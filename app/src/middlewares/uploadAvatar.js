@@ -1,17 +1,17 @@
 const multer = require("multer");
 const path = require("path");
 
-const storeImageProduct = multer.diskStorage({
+const storeImageAvatar = multer.diskStorage({
     destination: (req,file,cb) => {
-        return cb(null, "public/images/products")
+        return cb(null, "public/images/avatar")
     },
     filename:(req,file,cb) => {
-        return cb(null,`${Date.now()}_products_${path.extname(file.originalname)}`)
+        return cb(null,`${Date.now()}_avatar_${path.extname(file.originalname)}`)
     }
 });
 
-const uploadImageProduct = multer({
-    storage: storeImageProduct,
+const uploadImageAvatar = multer({
+    storage: storeImageAvatar,
     fileFilter: (req,file,cb) => {
         if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
              req.fileValidationError = "No es un tipo valido de imagen soportado";
@@ -22,5 +22,5 @@ const uploadImageProduct = multer({
 });
 
 module.exports = {
-    uploadImageProduct
+    uploadImageAvatar
 }

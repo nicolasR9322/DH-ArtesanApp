@@ -6,23 +6,49 @@
     <main class="product-create">
         <form action="/products/create" method="POST" class="product-create-form" enctype="multipart/form-data">
             <label for="">Nombre:
-                <input type="text" name="name">
+                <input type="text" name="name" value="<%= locals.old && old.name %>">
             </label>
+            <% if (locals.errors && errors.name) { %>
+                <span class="error-message"><%= errors.name.msg %></span>
+            <% } %>
             <label for="">Descripcion:
-                <input type="text" name="description">
+                <input type="text" name="description" value="<%= locals.old && old.description %>">
             </label>
+            <% if (locals.errors && errors.description) { %>
+                <span class="error-message"><%= errors.description.msg %></span>
+            <% } %>
             <label for="file" class="product-create-label-file">Subir imagen
                 <input type="file" id="file" name="image" class="product-create-input-file" value="placeholder.png">
             </label>
+            <% if (locals.errors && errors.image) { %>
+                <span class="error-message"><%= errors.image.msg %></span>
+            <% } %>
             <label for="">Categoria:
-                <input type="text" name="category">
+                <select id="" name="category">
+                    <option selected hidden value="">Categorias</option>
+                   <% categories.forEach(category => { %>
+                      <option value="<%- category.id %>" <%= locals.old && old.category == category.id ? "selected" : null %> ><%- category.name %></option>
+                   <% }) %>
+                  </select>
+                  <% if(locals.errors && errors.category) {%>
+                      <small class="text-danger"><%= errors.category.msg %></small>
+                  <% } %>
             </label>
-            <label for="">Color:
-                <input type="text" name="color">
-            </label>
+            <% if (locals.errors && errors.category) { %>
+                <span class="error-message"><%= errors.category.msg %></span>
+            <% } %>
             <label for="">Precio:
-                <input type="number" name="price">
+                <input type="number" name="price" value="<%= locals.old && old.price %>">
             </label>
+            <% if (locals.errors && errors.price) { %>
+                <span class="error-message"><%= errors.price.msg %></span>
+                <% } %>
+            <label for="">Descuento:
+                    <input type="number" name="discount" value="<%= locals.old && old.discount ? old.discount : 0 %>">
+            </label>
+            <% if (locals.errors && errors.discount) { %>
+                    <span class="error-message"><%= errors.discount.msg %></span>
+            <% } %>
             <div class="product-create-div-button">
                 <button type="reset" class="product-create-form-reset">Restablecer</button>
                 <button type="submit" class="product-create-form-submit">Grabar</button>
