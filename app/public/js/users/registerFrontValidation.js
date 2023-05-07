@@ -115,8 +115,8 @@ window.addEventListener("load", () => {
 
     $fileInputAvatar.addEventListener('change', () => {
         let filePath = $fileInputAvatar.value, //Capturo el valor del input
-            allowefExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i //Extensiones permitidas
-        if(!allowefExtensions.exec(filePath)){ //El método exec() ejecuta una busqueda sobre las coincidencias de una expresión regular en una cadena especifica. Devuelve el resultado como array, o null.
+            allowExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i //Extensiones permitidas
+        if(!allowExtensions.exec(filePath)){ //El método exec() ejecuta una busqueda sobre las coincidencias de una expresión regular en una cadena especifica. Devuelve el resultado como array, o null.
             $avatarErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
             $fileInputAvatar.value = '';
             $avatarPreview.innerHTML = '';
