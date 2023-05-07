@@ -88,7 +88,7 @@ window.addEventListener("load", () => {
 
     $priceInput.addEventListener("blur", () => {
         switch (true) {
-            case $priceInput.value == 0:
+            case $priceInput.value <= 0:
                     $priceInput.classList.add("is-invalid");
                     $priceErrors.innerText = "debe poner un precio";
                 break;
@@ -125,16 +125,18 @@ window.addEventListener("load", () => {
 
     $form.addEventListener("submit", (event) => {
         event.preventDefault();
+        let variable = "";
         const FORM_ELEMENTS = event.target.elements;
         for (let i = 0; i < FORM_ELEMENTS.length - 2; i++) {
             const element = FORM_ELEMENTS[i];
             if(element.value === "" && element.type != "file"){
                 element.classList.add("is-invalid")
+                console.log(element.value)
+                variable += element.value
             }
         }
         let elementosConErrores = document.querySelectorAll(".is-invalid");
         let errores = elementosConErrores.length > 0;
-
         errores ? $submitErrors.innerText = "Hay errores en su formulario, por favor verifique que todos los valores sean correctos" : $form.submit()
     })
 })
