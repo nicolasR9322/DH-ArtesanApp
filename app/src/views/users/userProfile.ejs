@@ -5,23 +5,39 @@
     <%-include("./partials/header") %> 
     
     <main class="profile-main">
-        <form action="/users/update?_method=PUT" method="post" class="profile-form-main">
+        <form action="/users/update?_method=PUT" method="post" class="profile-form-main" enctype="multipart/form-data" id="form">
             <div class="profile-div">
                 <label for="name">Cambiar nombre
-                    <input type="text" name="name" value="<%= locals.old && old.name ? old.name : name %>">
+                    <input type="text" name="name" value="<%= locals.old && old.name ? old.name : name %>" id="name">
                 </label>
                 <% if (locals.errors && errors.name) { %>
                     <span class="error-message"><%= errors.name.msg %></span>
-                <% } %>
+                    <% }else { %>
+                        <span id="nameErrors"></span>
+                    <% } %>
             </div>
             <div class="profile-div">
                 <label for="pass">Cambiar password
-                    <input type="password" name="pass" value="<%= locals.old && old.pass ? old.pass : pass %>">
+                    <input type="password" name="pass" value="<%= locals.old && old.pass ? old.pass : pass %>" id="pass">
                 </label>
                 <% if (locals.errors && errors.pass) { %>
                     <span class="error-message"><%= errors.pass.msg %></span>
-                <% } %>
+                    <% }else { %>
+                        <span id="pass1Errors"></span>
+                    <% } %>
             </div>
+            <div class="input-container">
+                <input class="input-style" type="file" name="avatar" id="avatar" value="<%= avatar %>">
+                <% if (locals.errors && errors.avatar) { %>
+                    <span class="error-message"><%= errors.avatar.msg %></span>
+                    <% }else { %>
+                        <span id="avatarErrors"></span>
+                    <% } %>
+            </div>
+            <div id="avatarPreview" width="100" height="100">
+
+            </div>
+            <span id="#submitErrors"></span>
             <button type="submit" class="profile-update-button">Actualizar</button>
         </form>
             
@@ -38,6 +54,7 @@
     </main>
 
     <%-include("./partials/footer") %> 
-    <%-include("./partials/scripts") %> 
+    <!-- <script src="/js/users/updateProfileValidation.js"></script> -->
+    
 </body>
 </html>

@@ -7,10 +7,12 @@
         /*colores*/
     --negro:#000;
     --blanco:#fff;
-    --verde: #B5D5C5;
-    --violeta: #B08BBB;
-    --naranja:#ECA869;
-    --beige:#f5f5dc;
+    --verde: #B2A4FF;
+    --violeta: #C07F00;
+    --naranja:#FFB4B4;
+    --beige:#B2A4FF;
+
+    
     /* fuentes */
     --Diplomata: "Diplomata SC", cursive;
     --Franklin:'Libre Franklin', sans-serif;
@@ -21,12 +23,13 @@
     --titulo:36px;
     --subtitulo:30px;
     --parrafo:16px;
+
+    --fondo: url("/images/stars.gif")
     }
 
     body{
-      
-           
-}
+      background: url("/images/fondoPatron.jpg"); 
+    }
 .is-valid{
   border: 3px solid green !important; 
 }

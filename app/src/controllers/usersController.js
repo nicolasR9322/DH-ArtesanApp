@@ -1,5 +1,7 @@
 const {validationResult} = require("express-validator");
 const db = require("../database/models");
+const fs = require("fs");
+const path = require("path");
 
 module.exports = {
     register: (req, res) => {
@@ -149,8 +151,6 @@ module.exports = {
         let userDB = db.Users;
         let errors = validationResult(req);
         let userId = req.session.user.id;
-        //let user = userDB.find(user => user.id === userId);
-        const {name,email,pass} = req.body;
         
         if(req.fileValidationError){
             errors.errors.push({
@@ -171,19 +171,26 @@ module.exports = {
 
 
         if(errors.isEmpty()){
-            const {name,email,pass} = req.body;
+            const {name,pass} = req.body;
+
+            
             let users = userDB.findByPk(userId)
             .then((user) => {
+                if(req.file){
+                    fs.existsSync(`./public/images/avatar/${user.avatar}`) && fs.unlinkSync(`./public/images/avatar/${user.avatar}`)  
+                }
                 userDB.update({
                      name,
-                     email,
-                     pass
-                },{
-                    where:{
-                        id: userId
-                    }
+                     pass,
+                     avatar: req.file ? req.file.filename : "default-image.png"
+                    },{
+                        where:{
+                            id: userId
+                        }
+                    }, {
                 })
                 .then(() => {
+                    
                     delete user.pass;
                     
                     req.session.user = user
@@ -198,7 +205,7 @@ module.exports = {
 
         let data = database.findByPk(userId)
             .then((user) => {
-                
+                return res.send(errors)
                 res.render("userProfile", {
                     session:req.session,
                     ...user.dataValues,
