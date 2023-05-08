@@ -1,5 +1,8 @@
 const {validationResult} = require("express-validator");
 const db = require("../database/models");
+const fs = require("fs");
+const path = require("path");
+
 
 module.exports = {
     all: (req,res) => {
@@ -135,12 +138,17 @@ module.exports = {
         if(errors.isEmpty()){
 
         const PRODUCTFOUND =  database.findByPk(id);
-        const CATEGORIESALL = db.categories.findAll()
+        const CATEGORIESALL = db.categories.findAll();
+        let productImage = PRODUCTFOUND.image
 
             Promise.all([PRODUCTFOUND,CATEGORIESALL])
             .then((PRODUCTFOUND,CATEGORIESALL) => {
+                if(req.file){
+                    fs.existsSync(`./public/images/products/${PRODUCTFOUND[0].image}`) && fs.unlinkSync(`./public/images/products/${PRODUCTFOUND[0].image}`)  
+                }
                 database.update({
                     ...PRODUCTFOUND.dataValues,
+                    image: req.file ? req.file.filename : "placeholder.png",
                     categories: CATEGORIESALL
                 }, {
                     where: {

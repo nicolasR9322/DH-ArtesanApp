@@ -1,0 +1,11 @@
+1 ) nuevo esquema de colores, por una cuestion de orden se guardaron las anteriores variables
+
+    --negro:#000;
+    --blanco:#fff;
+    --verde: #B2A4FF;
+    --violeta: #C07F00;
+    --naranja:#FFB4B4;
+    --beige:#B2A4FF;
+
+2 ) nuevo fondo agregado
+3) nuevo logo
