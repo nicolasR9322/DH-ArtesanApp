@@ -129,7 +129,7 @@ window.addEventListener("load", () => {
         const FORM_ELEMENTS = event.target.elements;
         for (let i = 0; i < FORM_ELEMENTS.length - 2; i++) {
             const element = FORM_ELEMENTS[i];
-            if(element.value === "" && element.type != "file"){
+            if((element.value === "" || element.value === "0" && element.id === "price") && element.type != "file"){
                 element.classList.add("is-invalid")
                 console.log(element.value)
                 variable += element.value
