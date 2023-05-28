@@ -23,6 +23,7 @@ app.use(session({
 }))
 app.use(cookieParser());
 app.use(cookies);
+app.use(express.json());
 
 // routers
 const indexRouter = require("./routes/indexRouter");
@@ -31,6 +32,9 @@ const usersRouter = require("./routes/usersRouter");
 const cartRouter = require("./routes/cartRouter");
 const adminRouter = require("./routes/admin");
 
+// apis routes
+const mainApi = require("./routes/apis/main");
+const userAPI = require("./routes/apis/userAPI")
 
 // views
 app.use("/", indexRouter);
@@ -40,6 +44,10 @@ app.use("/results", indexRouter);
 app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
 
+// api
+
+app.use("/api", mainApi);
+app.use("/api", userAPI)
 
 // catch error
 
