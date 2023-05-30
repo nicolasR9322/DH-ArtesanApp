@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include("./partials/head") %>
+</head>
+<body>
+    <main class="error-main">
+        <div class="error-main-div">
+            <img src="/images/error.png" alt="" class="error-main-div-img">
+            <div>
+                <span class=" error-main-div-span">
+                    ay no, <%= typeof error !== "undefined" ? error : " no se que paso " %>, que amsiedad
+                </span>
+            </div>
+            <div class="error-main-div-button">
+                <a href="/">
+                    <button>
+                        presiona aqui para volver
+                    </button>
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

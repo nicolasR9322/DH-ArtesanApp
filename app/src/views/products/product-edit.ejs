@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/head") %> 
+<body>
+    <%-include("./partials/header") %> 
+    <main class="product-edit">
+        <form action="/products/edit/<%= id %>?_method=PUT" method="POST" class="product-edit-form" enctype="multipart/form-data" id="form">
+            <label for="">Nombre:
+                <input type="text" name="name" value="<%= locals.old && old.name ? old.name : name %>" id="name">
+            </label>
+            <% if (locals.errors && errors.name) { %>
+                <span class="error-message"><%= errors.name.msg %></span>
+                <% }else { %>
+                    <span id="nameErrors"></span>
+                <% } %>
+            <label for="">Descripcion:
+                <input type="text" name="description" value="<%= locals.old && old.description ? old.description : description %>" id="description">
+            </label>
+            <% if (locals.errors && errors.description) { %>
+                <span class="error-message"><%= errors.description.msg %></span>
+                <% }else { %>
+                    <span id="descriptionErrors"></span>
+                <% } %>
+            <label for="file" class="product-edit-label-file">Subir imagen
+                <input type="file" id="file" name="image" class="product-edit-input-file" value="<%= image %>">
+            </label>
+            <% if (locals.errors && errors.image) { %>
+                <span class="error-message"><%= errors.image.msg %></span>
+                <% }else { %>
+                    <span id="fileErrors"></span>
+                <% } %>
+            <label for="">Categoria:
+                <select id="category" name="category">
+                    <option selected hidden value="">Categorias</option>
+                   <% categories.forEach(category => { %>
+                    <option value=" <%- category.id  %>" <%= locals.old && old.category == category.id ? "selected" : category.id == categoriesId ? "selected" : "" %>
+                        >
+                        <%- category.name %>
+                    </option>
+                   <% }) %>
+                  </select>
+                  <% if(locals.errors && errors.category) {%>
+                      <small class="text-danger"><%= errors.category.msg %></small>
+                      <% }else { %>
+                        <span id="categoryErrors"></span>
+                    <% } %>
+            </label>
+            <label for="">Precio:
+                <input type="number" name="price" value="<%= locals.old && old.price ? old.price : price %>" id="price">
+            </label>
+            <% if (locals.errors && errors.price) { %>
+                <span class="error-message"><%= errors.price.msg %></span>
+                <% }else { %>
+                    <span id="priceErrors"></span>
+                <% } %>
+            <label for="">Descuento:
+                    <input type="number" name="discount" value="<%= locals.old && old.discount ? old.discount : 0 %>" id="discount">
+            </label>
+            <% if (locals.errors && errors.discount) { %>
+                    <span class="error-message"><%= errors.discount.msg %></span>
+                    <% }else { %>
+                        <span id="discountErrors"></span>
+                    <% } %>
+                    <div id="preview" width="50" height="50">
+    
+                    </div>
+            <div class="product-edit-div-button">
+                <button type="reset" class="product-edit-form-reset">Restablecer</button>
+                <span id="submitErrors">
+
+                </span>
+                <button type="submit" class="product-edit-form-submit">Grabar</button>
+            </div>
+            
+        </form>
+    </main>
+
+    <%-include("./partials/footer") %> 
+    <script src="/js/products/productFrontValidation.js"></script>
+</body>
+</html>

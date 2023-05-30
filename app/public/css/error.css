@@ -1,0 +1,32 @@
+main.error-main{
+    width: 90%;
+    margin: 2rem auto;
+}
+
+main.error-main div.error-main-div{
+    background: url("/images/stars.gif");
+    background-size: contain;
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+}
+main.error-main div.error-main-div img.error-main-div-img{
+    width: 50%;
+    height: 50%;
+}
+
+main.error-main div.error-main-div div span.error-main-div-span{
+    position: absolute;
+    top: 50%;
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: var(--Nerko);
+}
+
+main.error-main div.error-main-div  div.error-main-div-button a button{
+    padding: 1rem;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    font-size: 2rem;
+}

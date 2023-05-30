@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/head") %> 
+    <body>
+        <main class="login-main">
+
+        
+    <div class="form-container">
+        <h2>Ingresar</h2>
+        <hr>
+        <div class="login-logo">
+            <!-- <div class="logo-container">
+            <a href="/"><img src="/images/logo.png" alt="logo ArtesApp"></a></div>
+         </div> -->
+        <form action="/users/login" method="post" id="form">
+            <div class="form">
+                <div class="input-container">
+                    <input class="input-style" type="email" name="email" placeholder="Ingrese su email" value="<%= locals.old && old.email %>" id="email">
+                    <% if (locals.errors && errors.email) { %>
+                        <span class="error-message"><%= errors.email.msg %></span>
+                    <% }else { %>
+                        <span id="emailErrors"></span>
+                    <% } %>
+                </div>
+                <div class="input-container">
+                    <input class="input-style" type="password" name="pass" placeholder="Ingrese su contraseña" id="pass">
+                    <% if (locals.errors && errors.pass) { %>
+                        <span class="error-message"><%= errors.pass.msg %></span>
+                        <% }else { %>
+                            <span id="pass1Errors"></span>
+                        <% } %>
+                </div>
+                <div class="check">
+                    <label for="recordar">  Recordarme </label>
+                    <input type="checkbox" name="recordar" id="recordar">
+                    
+                </div>
+                <div class="button-container">
+                    
+                    <button type="submit" class="btn-submit1">Ingresar</button>
+                </div>
+                <span id="submitErrors"></span>
+                <span><a href="">¿Olvidaste tu contraseña?</a></span>
+                <span><a href="/users/register">Aún no tengo cuenta</a></span>
+            </div>
+        </form>
+    </div>
+</main>
+<script src="/js/users/loginFrontValidation.js"></script>
+</body>
+</html>
