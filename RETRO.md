@@ -43,8 +43,15 @@ Las principales conclusiones sacadas del Sprint 6 sobre nuestro trabajo grupal f
 ---- Nota: la desercion del equipo hace que las siguientes retrospectivas sean individuales ----
 
 Las principales conclusiones sacadas del Sprint 7 son:
--   Hacer mas : profundizar los conceptos,e implementar nuevas formas de
+-   Hacer mas : profundizar los conceptos,e implementar nuevas formas de resolver problemas
 -   Empezar a hacer: empezar a refactorizar todo el proyecto para que quede a la altura 
+-   Dejar de hacer: procastinar
+-   Hacer menos: evitar distracciones constantes
+-   Seguir haciendo: seguir cumpliendo con las consignas y mantener el tablero actualizado
+
+Las principales conclusiones sacadas del Sprint 8 son:
+-   Hacer mas : profundizar los conceptos, estudiar mas y estar al dia con las clases y con el playground
+-   Empezar a hacer: continuar con la refactorizacion 
 -   Dejar de hacer: procastinar
 -   Hacer menos: evitar distracciones constantes
 -   Seguir haciendo: seguir cumpliendo con las consignas y mantener el tablero actualizado

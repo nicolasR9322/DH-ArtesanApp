@@ -5,7 +5,6 @@ module.exports = {
     list: async (req,res) => {
         try {
             const products = await getAllProducts();
-console.log(req.query)
             let categoriesOne = (categoryArray, categoryNumber)  =>
             {
                 categoryArray = [];
@@ -17,26 +16,20 @@ console.log(req.query)
             }
 
 
-            
-            let paginacion = (condicion) => {
-                if(condicion === "sumar"){
-                    return  + 10;
-                } else if( condicion === "restar"){
-                    return  - 10;
-                }
-            }
+         
+           
             return res.status(200).json({
                 
                 ok:true,
                 total : products.length,
                 countByCategory: {
-                One : categoriesOne("One", 1).length,
-                two : categoriesOne("two", 2).length,
-                three: categoriesOne("three", 3).length
+                Comida : categoriesOne("Comida", 1).length,
+                Artesanias : categoriesOne("Artesanias", 2).length,
+                Pinturas: categoriesOne("Pinturas", 3).length,
+                Esculturas: categoriesOne("Esculturas", 4).length,
                 },
                 url : "/api/products",
-                next:  `${paginacion("sumar")}`,
-                data: products,
+                products: products,
             })
         } catch (error) {
             console.log(error);

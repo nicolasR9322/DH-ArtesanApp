@@ -11,7 +11,6 @@ module.exports = {
                     
                 ],
             })
-            console.log(products)
             let productsURL = products.map(product => ({
                 ...product.toJSON(),
                 url: `/api/products/${product.id}`

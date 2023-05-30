@@ -10,7 +10,7 @@ module.exports = {
                 ok:true,
                 total: users.length,
                 url : "/api/users",
-                data : users
+                users : users
             })
         } catch (error) {
             console.log(error);

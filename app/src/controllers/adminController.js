@@ -3,22 +3,20 @@ const {validationResult} = require("express-validator");
 const db = require("../database/models");
 
 module.exports = {
-    index:(req,res) => {
+    index: async (req,res) => {
  
-        const databases1 = db.Users.findAll({
+        const databases1 = await db.Users.findAll();
+        const databases2 = await db.products.findAll();
 
-        })
-        .then((data1) => {
-            const databases2 = db.products.findAll({
-            })
-            .then((data2) => {
+        Promise.all([databases1,databases2])
+            .then(([{data1 , data2}]) => {
+
                 res.render("adminIndex",{
-                    userDB: data1.Users,
-                    productsDB: data2.Products,
-                    session:req.session
-                })
+                            userDB: data1,
+                            productsDB: data2,
+                            session:req.session
+                        })
             })
-        })
     },
     products:(req,res) => {
         const data = db.products.findAll({

@@ -5,6 +5,7 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const cookies = require("./middlewares/cookies");
+const cors = require('cors')
 
 //Template engines
 app.set("view engine","ejs")
@@ -24,6 +25,7 @@ app.use(session({
 app.use(cookieParser());
 app.use(cookies);
 app.use(express.json());
+app.use(cors());
 
 // routers
 const indexRouter = require("./routes/indexRouter");
