@@ -3,28 +3,32 @@
 <body>
     <%-include("./partials/header")  %>
 
-    <h2 class="main-title"> Resultados de la busqueda : <%= productSearch %></h2>
-    <main class="special-products">
+
+    <main>
+
+        <h2 class="main-title"> Resultados de la busqueda : <%= productSearch %></h2>
+
+        <section class="main-sales">
         <% if (searchResult.length != 0 ) { %>
-            <% searchResult.forEach(product => { %>
-                <section class="container-products">
-                    <div class="product">
-                        <a href="/products/detail/<%- product.id  %>"><img src="/images/products/<%=product.image ? product.image : 'default-image.png' %>"></a>
+            <% searchResult.forEach(({image,name,description,id,price}) => { %>
+                <article class="main-section-article">
+                    <div class="main-section-article-product">
+                        <a href="/products/detail/<%- id  %>"><img src="/images/products/<%=image ? image : 'default-image.png' %>"></a>
+                        <div class="show-more"><a href="/products/detail/<%- id  %>">Ver Más</a></div>
                         <div class="product__description">
-                            <h3 class="product__title"><%= product.name %></h3>
-                            <span class="product__price"><%= product.price %></span>
+                            <h3 class="product__title"><%= name %></h3>
+                            <span class="product__price"><%= price %></span>
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
                     </div>
+                </article>
+                    <% }) %>
                 </section>
-                <% }) %>
-                <% } else { %>
-                    <div class="not-found">
-                    <h2 class="error-msg">No existe el producto que coincida con la búsqueda<h2>
-                    </div>
-                <% } %>
-         
-        
+         <% } else { %>
+            <div class="not-found">
+            <h2 class="error-msg">No existe el producto que coincida con la búsqueda<h2>
+            </div>
+        <% } %>
     </main>
 
     <%-include("./partials/footer")  %>

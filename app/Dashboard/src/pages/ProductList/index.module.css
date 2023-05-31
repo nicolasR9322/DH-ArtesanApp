@@ -1,0 +1,9 @@
+.tableContainer{
+    width: 80%;
+    height: 400px;
+    
+}
+
+.rows:nth-child(even){
+    background-color: red;
+}
