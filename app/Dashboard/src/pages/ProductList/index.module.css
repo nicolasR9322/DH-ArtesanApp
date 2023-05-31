@@ -4,6 +4,11 @@
     
 }
 
-.rows:nth-child(even){
-    background-color: red;
+.even{
+    color: white;
+    background: var(--naranja);
+}
+
+.odd{
+    background: var(--verde);
 }

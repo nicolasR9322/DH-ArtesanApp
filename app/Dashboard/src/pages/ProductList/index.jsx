@@ -88,6 +88,9 @@ return (
       <DataGrid
         rows={products}
         columns={columns}
+        getRowClassName={(params) =>
+          params.indexRelativeToCurrentPage % 2 === 0 ? styles.even : styles.odd
+        }
         initialState={{
           pagination: {
             paginationModel: {

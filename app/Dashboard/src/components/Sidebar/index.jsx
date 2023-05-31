@@ -20,10 +20,10 @@ export const Sidebar = () => {
 
         {/* <!-- Nav Item - Dashboard --> */}
         <li className="nav-item active ">
-          <a className="nav-link" href="/">
+          <Link className="nav-link" href="/">
             <i className="fas fa-fw fa-tachometer-alt"></i>
             <span>{TITLE}</span>
-          </a>
+          </Link>
         </li>
 
         {/* <!-- Divider --> */}
@@ -35,6 +35,7 @@ export const Sidebar = () => {
         {/* <!-- Nav Items --> */}
        
         <NavItem href="/" icon="fa-box" name="ABM - Productos"/>
+        <NavItem href="" icon="fa-box" name={<Link to="/products">ABM - Productos</Link>}/>
 
         {/* <!-- Divider --> */}
         <hr className="sidebar-divider d-none d-md-block" />
