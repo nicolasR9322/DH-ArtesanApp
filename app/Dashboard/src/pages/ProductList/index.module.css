@@ -12,3 +12,7 @@
 .odd{
     background: var(--verde);
 }
+
+.links{
+    color: red;
+}

@@ -6,7 +6,7 @@ const checkAdmin = require("../middlewares/checkAdmin");
 const { uploadImageProduct } = require("../middlewares/upload");
 // get index
 
-router.get("/",index);
+router.get("/",checkAdmin,index);
 
 // get products
 router.get("/products",checkAdmin, products);

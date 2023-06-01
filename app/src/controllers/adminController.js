@@ -7,6 +7,7 @@ module.exports = {
  
         const databases1 = await db.Users.findAll();
         const databases2 = await db.products.findAll();
+        const database3 = await 
 
         Promise.all([databases1,databases2])
             .then(([{data1 , data2}]) => {

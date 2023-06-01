@@ -3,16 +3,47 @@
 <%-include("./partials/head") %>
 <body>
     <%-include("./partials/header") %> 
-
-    <div class="container-slider"> 
-       <img src="images/banner/banner.png" alt="" srcset="" class="banner">        
-   </div>
     <main>
 
+       <!-- Slideshow container -->
+<div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+    <% banner.forEach(imagen => { %>
+        <div class="mySlides fade">
+          <div class="numbertext">`<%= imagen.id %> / <%= banner.length %>`</div>
+          <img src="/images/banner/<%= imagen.name %>" class="slider-image">
+          <div class="text"><%= imagen.name %></div>
+        </div>
+     
+    <% }) %>
+  
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+        <% let dots = banner.map((item,index) => {  %>
+
+            <span class="dot" onclick="currentSlide('<%= index + 1 %>')"></span>
+            <% }) %>
+        <%= dots.join("\n")%>
 
 
-        <h2 class="main-title"> Ofertas Imperdibles</h2>
-       <section class="main-sales">
+
+        <!-- <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span> -->
+    </div>
+    
+
+
+
+        <div class="section-wrap">
+            <h2 class="main-title"> Ofertas Imperdibles</h2>
+            <section class="main-sales">
             <% sales.forEach(({image,name,description,id,price}) => { %>
                 <article class="main-section-article">
                     <div class="main-section-article-product">
@@ -20,15 +51,23 @@
                         <div class="show-more"><a href="/products/detail/<%- id  %>">Ver Más</a></div>
                         <div class="product__description">
                             <h3 class="product__title"><%= name %></h3>
-                            <span class="product__price"><%= price %></span>
+                            <span class="product__price"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
                     </div>
                 </article>
                     <% }) %>
                 </section>
+        </div>
 
 
+        <div class="section-wrap">
+            <div class="image-align">
+                <img src="/images/falso/image2.jpg" alt="" srcset="" class="imagen-falsa">
+            </div>
+        </div>
+
+        <div class="section-wrap">
                  <h2 class="main-title"> Ultimos productos agregados</h2>
        <section class="main-sales">
             <% latest.forEach(({image,name,description,id,price}) => { %>
@@ -38,14 +77,16 @@
                         <div class="show-more"><a href="/products/detail/<%- id  %>">Ver Más</a></div>
                         <div class="product__description">
                             <h3 class="product__title"><%= name %></h3>
-                            <span class="product__price"><%= price %></span>
+                            <span class="product__price"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
                     </div>
                 </article>
                     <% }) %>
                 </section>
+            </div>
 
+            <div class="section-wrap">
         <h2 class="main-title"> Nuestros Productos</h2>
        <section class="main-sales">
             <% product.forEach(({image,name,description,id,price}) => { %>
@@ -55,22 +96,28 @@
                         <div class="show-more"><a href="/products/detail/<%- id  %>">Ver Más</a></div>
                         <div class="product__description">
                             <h3 class="product__title"><%= name %></h3>
-                            <span class="product__price"><%= price %></span>
+                            <span class="product__price"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
                     </div>
                 </article>
                     <% }) %>
                 </section>
-
+            </div> 
        
-        
+            <div class="section-wrap">
+                <div class="image-align">
+                    <img src="/images/falso/public.jpg" alt="" srcset="" class="imagen-falsa">
+                </div>
+            </div>
+
+                <div class="section-wrap">
                 <h2 class="main-title"> categorias que podrian interesarte </h2>
                <section class="main-sales">
-                    <% categories.forEach(({name,image}) => { %>
+                    <% categories.forEach(({name,image, id}) => { %>
                         <article class="main-section-article">
                             <div class="main-section-article-product">
-                                <a href="/products/detail/search"><img src="/images/categories/<%=image ? image : 'default-image.png' %>"></a>
+                                <a href="/searchByCategory/<%= id %>"><img src="/images/categories/<%=image ? image : 'default-image.png' %>"></a>
                                 
                                 <div class="product__description">
                                     <h3 class="categories-name"><%= name %></h3>
@@ -78,13 +125,13 @@
                         </article>
                             <% }) %>
                 </section>
-            
+            </div> 
             
             
             
             </main>
     <%-include("./partials/footer") %> 
-    
+    <script src="/js/slider.js"></script>
 
 </body>
 </html>

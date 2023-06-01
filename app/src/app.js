@@ -58,7 +58,7 @@ app.use((err,req,res,next) => {
 
     res.status(err.status || 500);
     res.render("404", {
-        error: "esta ruta no existe"
+        error: err.message
     });
 })
 // port

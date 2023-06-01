@@ -1,2 +1,1 @@
-
-module.exports = (req, res, next) => req.session.user && (rolId === 1) ? next() : "";
+module.exports = (req, res, next) => (req.session.user && req.session.user.rol === 1) ? next() : res.render("404",{error : "no tienes acceso"});

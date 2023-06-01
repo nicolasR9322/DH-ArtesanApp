@@ -7,5 +7,6 @@ router.get("/" , indexController.index);
 router.get("/about" , indexController.about);
 //search
 router.get("/search", indexController.search)
+router.get("/searchByCategory/:id", indexController.searchByCategory)
 
 module.exports = router;
