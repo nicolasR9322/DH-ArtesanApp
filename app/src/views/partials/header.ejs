@@ -7,7 +7,7 @@
       <div class="header-busqueda">
           <form action="/search" method="GET">
               <input class="header-barra-busqueda" type="text" name="productSearch" placeholder="Buscar productos"  required>
-              <button class="header__search-button" type="submit">Buscar</button>
+              <button class="header__search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
           <nav class="header-caja-links">
             <ul>
@@ -26,39 +26,115 @@
             </ul>
           </nav>
         </div>
-     <button class="header-log-in" > 
-      <% if (typeof session.user != "undefined") { %>
-  <div class="dropdown">
-    <i class="fa-regular fa-user"></i>
-    <div class="dropdown-content">
-      <a href="#">Sesion Iniciada</a>
-      <a href="/users/showProfile">Mis Datos</a>
-      <form action="/users/destroy" method="post">
-      <div class="dropdown">
-        <button class="header-log-in" type="submit">
-        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-       </button>
-     </div>
-     </form>
-      <% if (session.user.rol === 1) { %>
-        <a href="/admin">Administrador</a>
-        <% } %>
-      </div>
-      <% } else {%>
-        <div class="dropdown">
-          <i class="fa-regular fa-user"></i>
-          <div class="dropdown-content">
-            <a href="/users/login">Iniciar Sesion</a>
+
+        <div class="header-buttons-container">
+          
+      
+       <% if (typeof session.user == "undefined") { %>
+        <div class="button-icons">
+
+          <a href="/users/login">
+              <button>
+                inicio de sesion
+              </button>
+            </a>
           </div>
           <% } %>
-         </div>
-     </button>
+          
+       <% if (typeof session.user != "undefined" && session.user.rol !== 1) { %>
+        <div class="button-icons">
+          <a href="">
+            <img src="/images/logo.png" alt="" style="width: 50px height; height: 50px;">
+          </a>
+          <div class="button-icons-welcome">
+          <p>bienvenido usuario
+            <i class="fa-solid fa-caret-down"></i>
+            <div class="menu-desplegable">
+              <a href="">
+                mis datos
+              </a>
+              <form action="">
+                <button type="submit">
+                  salir de la sesion
+                </button>
+              </form>
+            </div>
+          </p>
+          <!-- menu dropdown
+              mis datos
+              salir de la sesion 
+              -->
+          </div>
+        </div>
+          
+        <div class="button-icons">
+
+          <a href="">
+            <button>
+              carrito
+            </button>
+          </a>
+          
+        </div>
+          <% } %>
+
+        
+        
+      <%if (typeof session.user != "undefined" && session.user.rol === 1) { %>
+        <div class="button-icons">
+          <a href="">
+            <img src="/images/logo.png" alt="" style="width: 50px height; height: 50px;">
+          </a>
+          <div>
+          <p>bienvenido administrador
+            <div class="menu-desplegable-posicion">
+              <span class="desplegar">
+                <i class="fa-solid fa-caret-down"></i>
+              </span>
+  
+              <div class="menu-desplegable-contenido">
+                <a href="">
+                  <button>
+                    mis datos
+                  </button>
+                </a>
+                <a href="">
+                  <button>
+                    cerrar sesion
+                  </button>
+                </a>
+              </div>
+            
+            </div>
+            
+          </p>
+
+          </div>
+        
+        </div>
+          
+        <div class="button-icons">
+
+          <a href="">
+            <button>
+              carrito
+            </button>
+          </a>
+          
+        </div>
+
+        <div class="button-icons">
+          <a href="http://localhost:3000/">
+            <button>
+              Dashboard
+            </button>
+          </a>
+        </div>
+        <% } %>
+          
+      </div>
      
-     <button class="header-go-cart"> 
-       <a href="/productCart">
-        <i class="fa-solid fa-cart-shopping"></i>
-      </a>
-     </button>
+     
      <!-- The overlay -->
 <div id="myNav" class="overlay">
 
