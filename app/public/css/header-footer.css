@@ -5,6 +5,9 @@ header.header-main .header-title h1.first-title,h1.secundary-title{
    display: none;
 
 }
+a{
+    text-decoration: none;
+}
 button{
     border:3px solid var(--negro); 
     box-shadow: inset 7px -7px 16px var(--violeta);
@@ -46,11 +49,7 @@ header.header-main {
     top: 0;
     z-index: 1000;
     align-items: center;
-    flex-wrap: wrap;
-}
-
-header.header-main div.header-logo{
-    
+    flex-wrap: nowrap;
 }
 
 
@@ -131,7 +130,6 @@ header.header-main div.header-burger-menu-close{
 header.header-main div.header-burger-menu-barra{
     background-color:var(--white);
     font-size: var(--titulo);
-    border: 2px solid var(--violeta);
     color: var(--violeta);
     border-radius: 10px;
     height: 45px;
@@ -141,7 +139,7 @@ header.header-main div.header-burger-menu-barra:hover{
     color: var(--blanco);
 }
 header.header-main div.header-burger-menu-barra:active{
-    background-color: var(--violeta);
+    background-color: var(--negro);
     color: var(--negro);
     
 }
@@ -203,9 +201,18 @@ header.header-main div.header-burger-menu-burger div.header-burger-menu-close-bu
     
 }
 
-
-
-
+.burger-btn{
+    border: none;
+    width: 200px;
+}
+.burger-btn span.burger-btn-bars{
+    color: white;
+}
+.btn-burger-new{
+    width: 110%;
+    font-size: 3rem;
+    border-radius: 15px;
+}
 /*--------------- CART AND LOGIN BUTTONS ---------------*/
 
 /*  header.header-main button.header-log-in{  
@@ -246,33 +253,177 @@ header.header-main div.header-burger-menu-burger div.header-burger-menu-close-bu
 /*--------------- BURGER MENU END ---------------*/
 
 
-header.header-main button.header-go-cart{ 
-   margin-top: 16px;
-   height: 30px;
-   width: 40px;
-   box-shadow: inset 7px -7px 16px var(--violeta);
-   border: 1px solid var(--negro);
-   font-family: var(--Nerko);
-   font-size: 20px;
-   cursor: pointer;
-   border-radius: 15px;
-   display: none;
+header.header-main .header-title{
+    max-width: 80px;
+    margin: 0px 5px;
 }
-header.header-main button.header-log-in a i{
+
+header.header-main .header-title h1.first-title,h1.secundary-title{
+    display: flex;
+    justify-content: center;
+    font-family: var(--Milonga);
+    font-style: italic;
+    font-size: 1.5rem;
+    text-align: center;
+}
+header.header-main div.header-busqueda form input.header-barra-busqueda{
+ width: 400px;
+ height: 30px;
+ box-shadow: 5px 5px 15px black;
+ margin-left: 10px;
+ display: none;
+}
+
+header.header-main div.header-busqueda{
+    display: none;
+}
+div.header-buttons-container{
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+div.button-icons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:0.5rem;
+}
+div.menu-desplegable-posicion{
+    position: relative;
+    display: inline-block;
+
+}
+
+div.menu-desplegable-contenido{
+    position: absolute;
+    background: linear-gradient(var(--beige),var(--violeta),var(--negro));
+    border-bottom: 3px ridge var(--violeta);
+    border-top: 3px groove var(--negro);
+    border-right: 3px groove var(--negro);
+    border-left: 3px ridge var(--violeta);
+    display: flex;
+    flex-direction: column;
+    padding: 10% auto;
+    border-radius: 15px;
+    display: none;
+    z-index: 1;
+}
+
+div.menu-desplegable-contenido a{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
     text-decoration: none;
+    
 }
-header.header-main button.header-log-in{ 
-   margin-top: 16px;
-   height: 30px;
-   width: 40px;
-   box-shadow: inset 7px -7px 16px var(--violeta);
-   border: 1px solid var(--negro);
-   font-family: var(--Nerko);
-   font-size: 20px;
-   cursor: pointer;
-   border-radius: 15px;
-   display: none;
+
+span.desplegar {
+    position: absolute;
+    cursor: pointer;
+    bottom: 0;
+    right: 0;
+
 }
+span.desplegar i{
+    cursor: pointer;
+    margin-left: 0.5rem;
+    animation: rotate 3s ease-in alternate infinite;
+    border: 3px solid var(--negro);
+    border-radius: 5px;
+    background: var(--negro);
+    font-size: 2rem;
+
+}
+
+div.menu-desplegable-posicion:hover div.menu-desplegable-contenido{
+    display: block;
+    animation: fade 1s ease;
+    
+}
+
+.menu-desplegable-links{
+    
+    margin: 0.5rem;
+
+}
+.menu-desplegable-items{
+    padding: 1rem;
+    background: var(--blanco);
+    box-shadow: inset 7px -7px 16px var(--violeta); 
+    border-radius: 15px;
+    /* width: 100%; */
+    width: 120px;
+}
+@keyframes rotate {
+    0%{
+        transform: rotateY(0deg);
+        color: var(--beige);
+        border: 3px solid var(--negro);
+
+    }
+    100%{
+        transform: rotateY(360deg);
+        color: var(--violeta);
+    border: 3px solid var(--blanco);
+
+    }
+}
+@keyframes fade {
+    0%{
+       opacity: 0;
+
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.img-avatar-header{
+    width: 50px height; 
+    height: 50px;
+    border-radius: 50%;
+}
+.button-icons-welcome-username{    
+    font-family: var(--Milonga);
+    
+}
+
+.item{
+    margin-left: 5px;
+    margin-bottom: -10px;
+    font-family: var(--Milonga);
+}
+
+.header-buttons-styles{
+    padding: 1rem;
+    border-radius: 15px;
+    text-shadow: var(--beige);
+    font-family: var(--Milonga);
+    font-size: 1.5rem;
+    display: block;
+    width: 200px;
+}
+
+.header-buttons-styles:hover{
+    background:url("/images/stars.gif");
+    color: var(--blanco);
+    
+}
+
+
+.cart-width{
+    margin: 0 auto;
+}
+
+
+/* .header-cart-correction{
+    width: 150px;
+} */
 /* header buttons */
 /* header menu burguer fullscreen */
 /* The Overlay (background) */
@@ -284,12 +435,16 @@ header.header-main button.header-log-in{
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
-    background-color:var(--violeta); /* Black fallback color */
-    background-color:var(--violeta); /* Black w/opacity */
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(255,255,255,0.8)50%, rgba(178,164,255,0.8) 100%);
+    /* background: linear-gradient(var(--negro),var(--beige),var(--violeta)); */
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-  }
+    height: 75%;
+}
   
+  .overlay-icons{
+    display: block;
+  }
   /* Position the content inside the overlay */
   .overlay-content {
     position: relative;
@@ -297,6 +452,7 @@ header.header-main button.header-log-in{
     width: 100%; /* 100% width */
     text-align: center; /* Centered text/links */
     margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+
   }
   
   /* The navigation links inside the overlay */
@@ -558,6 +714,7 @@ footer.footer-main div.footer-contenedor div.footer-caja-redes div.footer-icon-c
     header.header-main div.header-busqueda{
         width: 60%;
         max-width: 500px;
+        display: inline-block;
     }
     header.header-main div.header-burger-menu-barra {
         display: none
@@ -566,9 +723,45 @@ footer.footer-main div.footer-contenedor div.footer-caja-redes div.footer-icon-c
         width: 200px;
      height: 20px;
      box-shadow: 5px 5px 15px black;
+     display: inline-block;
     }
 
+    div.header-buttons-container{
+        display: flex;
+        margin-left: 5%;
+        position: relative;
+        
+    }
 
+    .desplegar{
+        position: absolute;
+        bottom: 0;
+        right: 100px;
+    }
+    .header-buttons-styles{
+        display: block;
+        width: 100%;
+    }
+
+    .hide{
+        display: none !important;
+    }
+
+    .login-tablet{
+        font-size: 1rem;
+       display: flex;
+       justify-content: center;
+       margin: 0;
+       align-items: center;
+       text-decoration: none;
+    }
+    .item{
+        text-align: center;
+    }
+
+    .menu-desplegable-contenido{
+        margin-left: -40px;
+    }
     /*--------------- HEADER END ---------------*/
 
     /*--------------- FOOTER START ---------------*/
@@ -594,6 +787,8 @@ footer.footer-main div.footer-contenedor div.footer-caja-titulo h2{
     font-size: 1.5rem;
 }
     /*--------------- FOOTER END ---------------*/
+
+    
 }
 
 @media (min-width: 1024px){
@@ -619,24 +814,29 @@ footer.footer-main div.footer-contenedor div.footer-caja-titulo h2{
     div.header-buttons-container{
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap:1rem;
+        justify-content: space-around;
+        gap: 2rem;
     }
 
     div.button-icons{
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap:0.5rem;
     }
     div.menu-desplegable-posicion{
         position: relative;
         display: inline-block;
+
     }
     
     div.menu-desplegable-contenido{
         position: absolute;
-        background: white;
-        border: 3px solid black;
+        background: linear-gradient(var(--beige),var(--violeta),var(--negro));
+        border-bottom: 3px ridge var(--violeta);
+        border-top: 3px groove var(--negro);
+        border-right: 3px groove var(--negro);
+        border-left: 3px ridge var(--violeta);
         display: flex;
         flex-direction: column;
         padding: 10% auto;
@@ -644,12 +844,18 @@ footer.footer-main div.footer-contenedor div.footer-caja-titulo h2{
         display: none;
         z-index: 1;
         width: 200px;
-        margin-left: -20px;
+        margin-left: -24px;
+
     }
 
     div.menu-desplegable-contenido a{
         margin: 1rem;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem auto;
+        text-decoration: none;
     }
 
     span.desplegar {
@@ -657,6 +863,7 @@ footer.footer-main div.footer-contenedor div.footer-caja-titulo h2{
         cursor: pointer;
         bottom: 0;
         right: 0;
+
     }
     span.desplegar i{
         cursor: pointer;
@@ -666,12 +873,26 @@ footer.footer-main div.footer-contenedor div.footer-caja-titulo h2{
         border-radius: 5px;
         background: var(--negro);
         font-size: 2rem;
+
     }
 
     div.menu-desplegable-posicion:hover div.menu-desplegable-contenido{
         display: block;
+        animation: fade 1s ease;
+
     }
 
+    .menu-desplegable-links{
+        width: 50%;
+        margin: 0 auto;
+
+    }
+    .menu-desplegable-items{
+       text-align: center;
+        padding: 0.5rem;
+        background: var(--blanco);
+        box-shadow: inset 7px -7px 16px var(--violeta);    
+    }
     @keyframes rotate {
         0%{
             transform: rotateY(0deg);
@@ -686,8 +907,48 @@ footer.footer-main div.footer-contenedor div.footer-caja-titulo h2{
 
         }
     }
+    @keyframes fade {
+        0%{
+           opacity: 0;
 
+        }
+        100%{
+            opacity: 1;
+        }
+    }
 
+    .img-avatar-header{
+        width: 50px height; 
+        height: 50px;
+        border-radius: 50%;
+    }
+    .button-icons-welcome-username{    
+        font-family: var(--Milonga);
+        
+    }
+
+    .item{
+        margin-left: 5px;
+        margin-bottom: -10px;
+        font-family: var(--Milonga);
+    }
+
+    .header-buttons-styles{
+        padding: 1rem;
+        border-radius: 15px;
+        text-shadow: var(--beige);
+        font-family: var(--Milonga);
+        font-size: 1.5rem;
+    }
+
+    .header-buttons-styles:hover{
+        background:url("/images/stars.gif");
+        color: var(--blanco);
+    }
+
+    .header-cart-correction{
+        width: 150px;
+    }
 }
 /*--------------- MEDIAQUERYS END ---------------*/
 

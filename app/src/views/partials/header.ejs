@@ -33,8 +33,8 @@
        <% if (typeof session.user == "undefined") { %>
         <div class="button-icons">
 
-          <a href="/users/login">
-              <button>
+          <a href="/users/login link-underline-out">
+              <button class="header-buttons-styles login-tablet">
                 inicio de sesion
               </button>
             </a>
@@ -44,38 +44,62 @@
        <% if (typeof session.user != "undefined" && session.user.rol !== 1) { %>
         <div class="button-icons">
           <a href="">
-            <img src="/images/logo.png" alt="" style="width: 50px height; height: 50px;">
+            <img src="/images/avatar/<%= session.user.avatar %>" alt="" class="img-avatar-header">
           </a>
           <div class="button-icons-welcome">
-          <p>bienvenido usuario
-            <i class="fa-solid fa-caret-down"></i>
-            <div class="menu-desplegable">
-              <a href="">
-                mis datos
-              </a>
-              <form action="">
-                <button type="submit">
-                  salir de la sesion
-                </button>
-              </form>
-            </div>
-          </p>
-          <!-- menu dropdown
-              mis datos
-              salir de la sesion 
-              -->
+            <p class="button-icons-welcome-username">
+              <p class="item">
+                Bienvenido <%= session.user.name %>
+              </p>
+              <div class="menu-desplegable-posicion">
+                <span class="desplegar">
+                  <i class="fa-solid fa-caret-down"></i>
+                </span>
+    
+                <div class="menu-desplegable-contenido">
+                  <a href="/users/showProfile" class="menu-desplegable-links">
+                    <button class="menu-desplegable-items">
+                      mis datos
+                    </button>
+                  </a>
+                  <a href="" class="menu-desplegable-links">
+                    <form action="/users/destroy" method="post">
+                      <button class="menu-desplegable-items" type="submit">
+                        cerrar sesion
+                      </button>
+                    </a>
+                    </form>
+
+                    <div class="button-icons">
+                      
+                      <a href="/productCart">
+                        <button class="header-buttons-styles header-cart-correction">
+                          <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                      </a>
+                      
+                    </div>
+
+                </div>
+              
+              </div>
+              
+            </p>
+            
+          </div>
+
+
+          <div class="button-icons hide">
+                      
+            <a href="/productCart">
+              <button class="header-buttons-styles header-cart-correction">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </a>
+            
           </div>
         </div>
-          
-        <div class="button-icons">
-
-          <a href="">
-            <button>
-              carrito
-            </button>
-          </a>
-          
-        </div>
+        
           <% } %>
 
         
@@ -83,26 +107,49 @@
       <%if (typeof session.user != "undefined" && session.user.rol === 1) { %>
         <div class="button-icons">
           <a href="">
-            <img src="/images/logo.png" alt="" style="width: 50px height; height: 50px;">
+            <img src="/images/avatar/<%= session.user.avatar  %>" alt="" class="img-avatar-header">
           </a>
           <div>
-          <p>bienvenido administrador
+          <p>
+            <p class="item">
+              Bienvenido <%= session.user.name %>
+            </p>
             <div class="menu-desplegable-posicion">
               <span class="desplegar">
                 <i class="fa-solid fa-caret-down"></i>
               </span>
   
               <div class="menu-desplegable-contenido">
-                <a href="">
-                  <button>
+                <a href="/users/showProfile" class="menu-desplegable-links">
+                  <button class="menu-desplegable-items">
                     mis datos
                   </button>
                 </a>
-                <a href="">
-                  <button>
-                    cerrar sesion
-                  </button>
-                </a>
+                <a href="" class="menu-desplegable-links">
+                  <form action="/users/destroy" method="post">
+                    <button class="menu-desplegable-items" type="submit">
+                      cerrar sesion
+                    </button>
+                  </a>
+                  </form>
+
+                  <div class="button-icons">
+
+                    <a href="/productCart">
+                      <button class="header-buttons-styles header-cart-correction">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                      </button>
+                    </a>
+                    
+                  </div>
+
+                  <div class="button-icons">
+                    <a href="http://localhost:3000/">
+                      <button class="header-buttons-styles">
+                        Dashboard
+                      </button>
+                    </a>
+                  </div>
               </div>
             
             </div>
@@ -115,17 +162,17 @@
           
         <div class="button-icons">
 
-          <a href="">
-            <button>
-              carrito
+          <a href="/productCart">
+            <button class="header-buttons-styles header-cart-correction hide">
+              <i class="fa-solid fa-cart-shopping"></i>
             </button>
           </a>
           
         </div>
 
-        <div class="button-icons">
+        <div class="button-icons hide">
           <a href="http://localhost:3000/">
-            <button>
+            <button class="header-buttons-styles">
               Dashboard
             </button>
           </a>
@@ -143,43 +190,110 @@
 
   <!-- Overlay content -->
   <div class="overlay-content">
-    <% if (typeof session.user != "undefined") { %>
-      <a href="#">Sesion Iniciada</a>
-      <a href="/users/showProfile">Mis Datos</a>
-    <% if (session.user.rol === "admin") { %>
-      <a href="/admin">Administrador</a>
-    <% } %>
-    <% } else {%>
-      <a href="/users/login">Iniciar Sesion</a>
-      <form action="/users/destroy" method="post">
-        <div class="dropdown">
-          
-          <button class="header-log-in" type="submit">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          <div class="dropdown-content">
-          
-           </div>
-             </div>
-     
-           </button>
-          </div>
+    <% if (typeof session.user == "undefined")  {%>
+      <div class="button-icons">
+        <a href="/users/login">
+            <button class="header-buttons-styles overlay-icons">
+              inicio de sesion
+            </button>
+          </a>
+        </div>
+      <% } %>
+    <% if (typeof session.user != "undefined" && session.user.rol !== 1) { %>
+      <div class="button-icons">
+        <a href="">
+          <img src="/images/avatar/<%= session.user.avatar %>" alt="" class="img-avatar-header">
+        </a>
+        <p class="item">
+          Bienvenido <%= session.user.name %>
+        </p>
+        
+        <a href="/users/showProfile" class="menu-desplegable-links">
+          <button class="menu-desplegable-items">
+            mis datos
+          </button>
+        </a>
+        
+        <form action="/users/destroy" method="post">
+          <button class="menu-desplegable-items" type="submit">
+            cerrar sesion
+          </button>
+        </a>
+        </form>
+        
+        <a href="/productCart" class="cart-width">
+          <button class="header-buttons-styles header-cart-correction">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </a>
+
+      </div>
+      <% } %>
+
+    <%if (typeof session.user != "undefined" && session.user.rol === 1) { %>
+
+      <div class="button-icons">
+        <a href="">
+          <img src="/images/avatar/<%= session.user.avatar  %>" alt="" class="img-avatar-header">
+        </a>
+        <div>
+        <p>
+          <p class="item">
+            Bienvenido <%= session.user.name %>
+          </p>
+          <a href="/users/showProfile" class="menu-desplegable-links">
+            <button class="menu-desplegable-items">
+              mis datos
+            </button>
+          </a>
+          <form action="/users/destroy" method="post">
+            <button class="menu-desplegable-items" type="submit">
+              cerrar sesion
+            </button>
+          </a>
           </form>
-          <% } %>
+                  <a href="/productCart" class="cart-width">
+                    <button class="header-buttons-styles header-cart-correction">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                  </a>
+        </p>
+
+        </div>
+      
+      </div>
+        
+      <div class="button-icons">
+        
+      </div>
+
+      <div class="button-icons">
+        <a href="http://localhost:3000/">
+          <button class="header-buttons-styles">
+            Dashboard
+          </button>
+        </a>
+      </div>
+    <% } %>
         </div>
   
 
 </div>
 
 <!-- Use any element to open/show the overlay navigation menu -->
-<span class="burger-btn"onclick="openNav()"><i class="fa-solid fa-bars" style="color: #ae8bbb;"></i></i></span>
 
 
 
 
-     <!-- <div class="header-burger-menu" >
-      <div class="header-burger-menu-close">x</div>
-      <div class="header-burger-menu-barra">
-        <i class="fas fa-bars"></i>
+<div class="header-burger-menu" >
+  <div class="header-burger-menu-close">x</div>
+  <div class="header-burger-menu-barra">
+    <span class="burger-btn"onclick="openNav()">
+      <button class="btn-burger-new">
+        <i class="fa-solid fa-bars burger-btn-bars" style="color: #ae8bbb;"></i>
+      </button>
+    </span>
+
         <nav>
           <ul>
             <li></li>
@@ -190,6 +304,6 @@
         </nav>
        </div>
      </div>
-      -->
+     
       
   </header>

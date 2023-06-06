@@ -35,6 +35,7 @@ module.exports = {
                     name:user.name,
                     email:user.email,
                     pass:user.pass,
+                    avatar:user.avatar,
                     recordar:user.recordar,
                     rol:user.rolId
                 }
@@ -123,6 +124,7 @@ module.exports = {
     
             let data = database.findByPk(userId)
                 .then((user) => {
+                    console.log(user)
                     res.render("users/showProfile",{
                         session:req.session,
                         ...user.dataValues
