@@ -192,7 +192,25 @@
   <!-- Overlay content -->
   <div class="overlay-content">
     <% if (typeof session.user == "undefined")  {%>
+      
+      
       <div class="button-icons">
+        <nav class="header-caja-links">
+          <ul>
+            <li>
+              <a href="/products" class="header-nav-link">Productos</a>
+            </li>
+            <li>
+              <a href="/users/register" class="header-nav-link">Registrate</a>
+            </li>
+            <li>
+              <a href="/products/create" class="header-nav-link">Vender</a>
+            </li>
+            <li>
+              <a href="/about" class="header-nav-link">Nosotros</a>
+            </li>
+          </ul>
+        </nav>
         <a href="/users/login">
             <button class="header-buttons-styles overlay-icons">
               inicio de sesion
@@ -249,7 +267,24 @@
 
     <%if (typeof session.user != "undefined" && session.user.rol === 1) { %>
 
+      
       <div class="button-icons">
+        <nav class="header-caja-links">
+          <ul>
+            <li>
+              <a href="/products" class="header-nav-link">Productos</a>
+            </li>
+            <li>
+              <a href="/users/register" class="header-nav-link">Registrate</a>
+            </li>
+            <li>
+              <a href="/products/create" class="header-nav-link">Vender</a>
+            </li>
+            <li>
+              <a href="/about" class="header-nav-link">Nosotros</a>
+            </li>
+          </ul>
+        </nav>
         <a href="">
           <img src="/images/avatar/<%= session.user.avatar  %>" alt="" class="img-avatar-header">
         </a>
@@ -270,8 +305,13 @@
           </a>
           </form>
                   <a href="/productCart" class="cart-width">
-                    <button class="header-buttons-styles header-cart-correction">
+                    <button class="header-buttons-styles header-admin-cart-button-correction">
                       <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                  </a>
+                  <a href="http://localhost:3000/">
+                    <button class="header-buttons-styles header-admin-cart-button-correction width">
+                      Dashboard
                     </button>
                   </a>
         </p>
@@ -280,17 +320,10 @@
       
       </div>
         
-      <div class="button-icons">
-        
-      </div>
+      
 
-      <div class="button-icons">
-        <a href="http://localhost:3000/">
-          <button class="header-buttons-styles">
-            Dashboard
-          </button>
-        </a>
-      </div>
+     
+     
     <% } %>
         </div>
   
