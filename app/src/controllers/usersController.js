@@ -120,11 +120,12 @@ module.exports = {
 
             let userId = req.session.user.id;
     
-            const database = db.Users
+            const database = db.Users;
     
-            let data = database.findByPk(userId)
+            let data = database.findByPk(userId, {
+                include: ["rol"]
+            })
                 .then((user) => {
-                    console.log(user)
                     res.render("users/showProfile",{
                         session:req.session,
                         ...user.dataValues

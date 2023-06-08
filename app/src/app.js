@@ -36,7 +36,7 @@ const adminRouter = require("./routes/admin");
 
 // apis routes
 const mainApi = require("./routes/apis/main");
-const userAPI = require("./routes/apis/userAPI")
+const userAPI = require("./routes/apis/userAPI");
 
 // views
 app.use("/", indexRouter);

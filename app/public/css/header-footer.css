@@ -82,8 +82,20 @@ header.header-main div.header-busqueda form input.header-barra-busqueda{
     font-family: var(--Milonga);
     padding: 5px;
 }
-header.header-main nav.header-caja-links{
-    display: none;
+div.button-icons nav.header-caja-links{
+    list-style: none;
+}
+div.button-icons nav.header-caja-links ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+div.button-icons nav.header-caja-links ul li{
+    width: 50%;
+    
 }
 
 header.header-main div.header-busqueda nav.header-caja-links ul {
@@ -406,7 +418,7 @@ div.menu-desplegable-posicion:hover div.menu-desplegable-contenido{
     font-family: var(--Milonga);
     font-size: 1.5rem;
     display: block;
-    width: 200px;
+    width: 120px;
 }
 
 .header-buttons-styles:hover{

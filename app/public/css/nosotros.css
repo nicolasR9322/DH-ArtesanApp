@@ -11,7 +11,7 @@ main.about-main{
 }
 
 main.about-main h1.titles{
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-family:var(--Diplomata);
     color: var(--negro);
     background: var(--verde);
@@ -19,7 +19,8 @@ main.about-main h1.titles{
     border-radius: 5px;
     overflow: auto;
     margin: 0.5rem auto;
-    
+    text-align: center;
+    word-break: normal;
 }
 main.about-main h2.subtitles{
     font-size: 2rem;

@@ -12,12 +12,13 @@
             <div class="row">
                 <div class="column">
                   <div class="card">
-                    <img src="/images/avatar/<%= avatar %>"></a>
-
+                    <div class="img-card">
+                        <img src="/images/avatar/<%= avatar %>"></a>
+                    </div>
 
                     <div class="container">
                         <ul>
-                            <li><p> Categoria/Rol : <%= rolId %></p></li>
+                            <li><p> Categoria/Rol : <%= rol.name %></p></li>
                             <li><p> Nombre de usuario : <%= name %></p> </li>
                             <li><p> Direccion : <%= "Buenos Aires" %></p> </li>
                             <li><p> Mail de contacto :<article class="show-profile">
@@ -37,14 +38,15 @@
             <a href="/users/profile">
                 <button class="show-profile-update-button">
                     editar perfil
-
                 </button>
               </a>
         </div>
                 
           
     <form action="/users/delete/<%= session.user.id %>?_method=DELETE" method="post" class="show-profile-form-main">
-        <button type="submit" class="show-profile-delete-button">borrar</button>
+        <button type="submit" class="show-profile-delete-button">
+            borrar
+        </button>
     </form>
 
     <div class="show-profile-center-button">

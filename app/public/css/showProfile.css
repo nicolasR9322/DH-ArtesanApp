@@ -1,4 +1,8 @@
 /* mobile */
+
+section.show-profile ul li{
+  list-style: none;
+}
   main.show-profile-main{
       border: 3px solid black;
       padding: 1rem;
@@ -47,6 +51,7 @@
       padding: 0.5rem;
       margin: 1rem auto;
       border-radius: 15px;
+      text-shadow: none;
   }
   
   main.show-profile-main button.show-profile-delete-button{
@@ -54,7 +59,10 @@
       padding: 0.5rem;
       margin: 0 auto;
       border-radius: 15px;
-      
+      text-shadow: none;
+      font-size: 1rem;
+      background: var(--negro);
+      color:red;
   }
   
   main.show-profile-main div.show-profile-center-button{
@@ -88,10 +96,15 @@
       border-radius: 25px;
     }
     .card img {
-      width: 80%;
-      margin: auto;
+      width: 100%;
+      max-width: 350px;
+      margin: 0 auto;
       padding: 10px;
       border-radius: 35px;
+    }
+
+    .card div.img-card{
+      text-align: center;
     }
     
     /* Some left and right padding inside the container */
@@ -196,6 +209,7 @@ main.show-profile-main button.show-profile-update-button{
     padding: 0.5rem;
     margin: 1rem auto;
     border-radius: 15px;
+    font-size: 1rem;
 }
 
 main.show-profile-main button.show-profile-delete-button{

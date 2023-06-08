@@ -1,7 +1,7 @@
 main.profile-main{
     border: 3px solid black;
     padding: 3rem;
-    background: rgba(181, 213, 197, 0.7);
+    background: rgba(0, 0, 0, 0.7);
     margin: 1rem;
     border-radius: 15px;
     
@@ -22,6 +22,12 @@ main.profile-main form.profile-form-main label{
     padding: 1rem;
     border-radius: 5px;
 }
+
+main.profile-main div.profile-div span{
+  color: red;
+  display: block;
+  text-align: center;
+}
 main.profile-main button.profile-delete-button{
     width: 50%;
     margin: 0 auto;
@@ -30,18 +36,19 @@ main.profile-main button.profile-delete-button{
 }
 main.profile-main form.profile-form-main div.profile-div{
     display: flex;
-    
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    
+    align-items: center;
     padding: 1rem;
     margin: 1rem;
 }
 
 main.profile-main button.profile-update-button{
-    width: 50%;
+    width: 250px;
     padding: 1rem;
     margin: 0 auto;
+    border-radius: 15px;
 }
 
 .profile-center-button{
@@ -52,8 +59,8 @@ main.profile-main button.profile-update-button{
 }
 
 .profile-go-back-button{
-    width: 50%;
     padding: 1rem;
+    border-radius: 15px;
     
 }/* Three columns side by side */
 .column {
@@ -102,4 +109,28 @@ main.profile-main button.profile-update-button{
   
   .button:hover {
     background-color: #555;
+  }
+
+  .input-style{
+
+  }
+
+  .no#input{}
+
+  .no{
+    height: 100px;
+    box-shadow: inset 7px -7px 16px var(--violeta);
+    font-family: var(--Nerko);
+    border-radius: 50%;
+    background: var(--blanco) !important;
+    margin: 1rem auto;
+    display: block;
+    width: 50%;
+    border-radius: 15px;
+  }
+
+  #avatarPreview img{
+    width: 200px; 
+    height: 250px;
+    object-fit: cover;
   }

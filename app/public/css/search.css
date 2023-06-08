@@ -20,3 +20,11 @@ div.not-found h2.error-msg{
     font-family: var(--Franklin);
     font-style: italic;
 }
+
+div.not-found h2.error-msg p{
+    background: var(--blanco);
+    border: 3px solid var(--negro);
+    border-radius: 15px;
+    padding: 0.5rem;
+    text-align: center;
+}

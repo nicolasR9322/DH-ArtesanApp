@@ -11,7 +11,7 @@
                     <input type="text" name="name" value="<%= locals.old && old.name ? old.name : name %>" id="name">
                 </label>
                 <% if (locals.errors && errors.name) { %>
-                    <span class="error-message"><%= errors.name.msg %></span>
+                    <span class="error-message" id="nameErrors"><%= errors.name.msg %></span>
                     <% }else { %>
                         <span id="nameErrors"></span>
                     <% } %>
@@ -27,14 +27,17 @@
                     <% } %>
             </div>
             <div class="input-container">
-                <input class="input-style" type="file" name="avatar" id="avatar" value="<%= avatar %>">
+                <label for="avatar" class="no">
+                    Subir imagen
+                    <input class="input-style" type="file" name="avatar" id="avatar" value="<%= avatar %>">
+                </label>
                 <% if (locals.errors && errors.avatar) { %>
                     <span class="error-message"><%= errors.avatar.msg %></span>
                     <% }else { %>
                         <span id="avatarErrors"></span>
                     <% } %>
             </div>
-            <div id="avatarPreview" width="100" height="100">
+            <div id="avatarPreview">
 
             </div>
             <span id="#submitErrors"></span>
