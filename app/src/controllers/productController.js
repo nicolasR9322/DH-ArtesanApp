@@ -19,14 +19,24 @@ module.exports = {
         })
 
     },
-    detail: (req, res) => {
-    
-        const {id} = req.params
+    detail: async (req, res) => {
+        
+        const {id} = req.params;
 
-        const product = db.products.findByPk(id)
-        .then((producto) => {
+        const product = await db.products.findByPk(id);
+
+        const others = await db.products.findAll({
+            where: {
+                categoriesId : product.categoriesId
+            },
+            limit: 3
+        });
+
+        Promise.all([product,others])
+        .then(([producto, others]) => {
             return res.render("productDetail", {
                 ...producto.dataValues,
+                others,
                 session: req.session
             });
         })

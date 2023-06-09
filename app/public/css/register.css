@@ -30,20 +30,19 @@ main.register-main .register-logo{
     margin: auto;
 }
 main.register-main a {
-    color: darkblue;
+    color: var(--blanco);
     font-size: 0.8rem;
     text-decoration: none;
 }
 
 main.register-main h2 {
-    
+    color: var(--blanco);
     margin-bottom: 1rem;
     text-align: center;
 }
 
 main.register-main hr {
-    background: linear-gradient(90deg, black, white);
-    height: 3px;
+    height: 10px;
     margin-bottom: 3rem; 
 }
 
@@ -64,7 +63,7 @@ main.register-main .button-container {
 }
 
 main.register-main span.error-message {
-    color: var(--negro);
+    color: red;
     font-size: 0.7rem;
 }
 main.register-main input.input-style {
@@ -89,12 +88,15 @@ main.register-main label {
 }
 
 main.register-main .form-container {
-    background: linear-gradient(var(--violeta), var(--naranja));
+    /* background: linear-gradient(var(--beige), var(--negro),var(--beige)); */
+    background: url("/images/stars.gif");
     padding: 1rem;
     border-radius: 0.9rem;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
     max-width: 350px;
     width: 100%;
+    border: 10px solid transparent;
+    border-image: url("/images/cuadro.png") 30 round;;
 }
 
 main.register-main .check{ 
@@ -106,10 +108,8 @@ main.register-main .check label {
 }
 
 main.register-main .error-message {
-    
-    
+    color: red;
     margin-top: 0.5rem;
-    
 }
 
 /* BUTTONS */
@@ -122,24 +122,82 @@ main.register-main .btn {
     text-transform: uppercase;
     font-weight: 600;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    margin: 0.5rem;
-    
+    margin: 0.5rem;    
 }
 main.register-main .btn-submit {
-    background:  linear-gradient(45deg, rgba(255,255,255,1) 0%,  rgba(106, 219, 140, 0.5) 50%);
-    color: rgb(75, 75, 75);
+    background: linear-gradient(285deg, var(--negro) 0%,  var(--beige) 50%);
+    color: var(--negro);
     font-weight: bold;
-    transition: all 4s ease;
-    
+    box-shadow: inset 7px -7px 16px var(--negro);
 }
 
 main.register-main .btn-submit:hover {
     color: rgb(172, 172, 172);
     box-shadow: -5px -5px 10px rgb(255, 255, 255, 0.7);
-    background: linear-gradient(285deg, rgba(255,255,255,0.5) 0%,  rgba(39,255,232,0.5) 50%);
+    background: linear-gradient(285deg, var(--beige) 0%,  var(--negro) 50%);
 }
 
+
+.labels{
+    color: var(--blanco);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+}
+.labels a{
+    padding-left: 1rem;
+}
+
+.register-label-avatar{
+    height: 100px;
+    border: 2px solid var(--negro);
+    box-shadow: inset 7px -7px 16px var(--negro);
+    font-size: var(--subtitulo);
+    color: var(--negro);
+    font-family: var(--Nerko);
+    font-size: 1.5rem !important;
+    border-radius: 50%;
+    background: var(--beige);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-label-avatar input{
+    display: none;
+}
+
+.register-label-avatar:active{
+    color: var(--blanco);
+  text-shadow: 1px 1px 1px var(--violeta);
+  background: var(--negro);
+  border: 1px solid var(--blanco);
+}
+
+.register-label-avatar:hover{
+    background: linear-gradient(var(--blanco),  var(--verde));
+
+}
+.terms-and-conditions{
+    font-weight: bold;
+    color: var(--verde) !important;
+}
+
+#nameErrors, #emailErrors,#pass1Errors,#pass2Errors,#avatarErrors{
+    color: red;
+}
 /* MEDIA QUERIES */
+
+@media screen and (min-width: 400px) {
+
+    .labels{
+        color: var(--blanco);
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        text-align: center;
+    }
+}
 
 /* TABLET */
 

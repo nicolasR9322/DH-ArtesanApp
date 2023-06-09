@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <%-include("./partials/head") %> 
+
+
     <body>
         <main class="login-main">
 
         
     <div class="form-container">
         <h2>Ingresar</h2>
-        <hr>
         <div class="login-logo">
             <!-- <div class="logo-container">
             <a href="/"><img src="/images/logo.png" alt="logo ArtesApp"></a></div>
@@ -31,8 +32,10 @@
                         <% } %>
                 </div>
                 <div class="check">
-                    <label for="recordar">  Recordarme </label>
-                    <input type="checkbox" name="recordar" id="recordar">
+                    <label for="recordar" class="login-label-recordar">  
+                        <input type="checkbox" name="recordar" id="recordar">
+                        Recordarme
+                    </label>
                     
                 </div>
                 <div class="button-container">
@@ -40,12 +43,13 @@
                     <button type="submit" class="btn-submit1">Ingresar</button>
                 </div>
                 <span id="submitErrors"></span>
-                <span><a href="">¿Olvidaste tu contraseña?</a></span>
-                <span><a href="/users/register">Aún no tengo cuenta</a></span>
+                <div><a href="">¿Olvidaste tu contraseña?</a></div>
+                <div><a href="/users/register">Aún no tengo cuenta</a></div>
             </div>
         </form>
     </div>
 </main>
+
 <script src="/js/users/loginFrontValidation.js"></script>
 </body>
 </html>

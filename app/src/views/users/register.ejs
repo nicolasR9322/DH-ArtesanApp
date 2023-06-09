@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
      <%-include("./partials/head") %> 
+    <%-include("./partials/header") %> 
+
 <body>
    <main class="register-main">
     <div class="form-container">
         <h2>Registro</h2>
-        <hr>
         <!-- <div class="register-logo">
             <div class="logo-container">
             <a href="/"><img src="/images/logo.png" alt="logo ArtesApp"></a></div>
@@ -45,7 +46,10 @@
                     <% } %>
             </div>
             <div class="input-container">
-                <input class="input-style" type="file" name="avatar" id="avatar">
+                <label for="avatar" class="register-label-avatar">
+                    subir imagen
+                    <input class="input-style" type="file" name="avatar" id="avatar">
+                </label>
                 <% if (locals.errors && errors.avatar) { %>
                     <span class="error-message"><%= errors.avatar.msg %></span>
                     <% }else { %>
@@ -57,8 +61,10 @@
             </div>
             <div class="check">
             <div class="ter">
-                <label for="recordar">  Acepto los <a href="">términos y condiciones</a> </label>
-                <input type="checkbox" name="terms" id="recordar"> 
+                <label for="recordar" class="labels">  
+                    <input type="checkbox" name="terms" id="recordar"> 
+                    Acepto los  <a href="" class="terms-and-conditions"> términos y condiciones</a> 
+            </label>
                 <% if (locals.errors && errors.terms) { %>
                     <span class="error-message"><%= errors.terms.msg %></span>
                 <% } %>
@@ -73,6 +79,7 @@
         </form>
     </div>
 </main>
+<%-include("./partials/footer") %> 
 
 <script src="/js/users/registerFrontValidation.js"></script>
 </body>
