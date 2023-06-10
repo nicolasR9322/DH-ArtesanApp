@@ -31,6 +31,12 @@ module.exports = {
           key: 'id'
         }
       },
+      socialId: {
+        type: Sequelize.STRING
+      },
+      socialProvider: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

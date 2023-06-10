@@ -44,7 +44,7 @@
        <% if (typeof session.user != "undefined" && session.user.rol !== 1) { %>
         <div class="button-icons">
           <a href="">
-            <img src="/images/avatar/<%= session.user.avatar %>" alt="" class="img-avatar-header">
+            <img src="<%= /https/.test(session.user.avatar) ? session.user.avatar : `/images/avatar/${session.user.avatar}` %>" alt="" class="img-avatar-header">
           </a>
           <div class="button-icons-welcome">
             
@@ -237,7 +237,7 @@
           </ul>
         </nav>
         <a href="">
-          <img src="/images/avatar/<%= session.user.avatar %>" alt="" class="img-avatar-header">
+          <img src="<%= /https/.test(session.user.avatar) ? session.user.avatar : `/images/avatar/${session.user.avatar}` %>" alt="" class="img-avatar-header">
         </a>
         <p class="item">
           Bienvenido <%= session.user.name %>

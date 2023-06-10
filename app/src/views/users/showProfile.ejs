@@ -13,7 +13,7 @@
                 <div class="column">
                   <div class="card">
                     <div class="img-card">
-                        <img src="/images/avatar/<%= avatar %>"></a>
+                        <img src="<%= /https/.test(session.user.avatar) ? session.user.avatar : `/images/avatar/${session.user.avatar}` %>"></a>
                     </div>
 
                     <div class="container">

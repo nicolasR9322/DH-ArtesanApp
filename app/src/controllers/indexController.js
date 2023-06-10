@@ -3,6 +3,7 @@ const { Op } = require("sequelize");
 
 module.exports = {
     index: async (req, res) => {
+        console.log(req.session.user)
         const allProducts = await db.products.findAll({
             include: ["categories"],
             limit: 10

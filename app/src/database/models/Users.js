@@ -22,7 +22,9 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     pass: DataTypes.STRING,
     avatar: DataTypes.STRING,
-    rolId: DataTypes.INTEGER
+    rolId: {type :DataTypes.INTEGER, defaultValue: 2},
+    socialId: DataTypes.STRING,
+    socialProvider: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Users',
