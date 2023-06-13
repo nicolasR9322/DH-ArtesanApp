@@ -4,42 +4,30 @@
 
 <body>
     <%-include("./partials/header") %> 
-    <main class="products-main">
-        <aside class="products-aside">
-      <!--       <div>
-                <ul>
-                    <li>electro</li>
-                    <li>home</li>
-                    <li>cocina</li>
-                </ul>
-            </div> -->
-        </aside>
-        <h2 class="main-title"> Listado de productos</h2>
-        <main class="special-products">
-            <% database.forEach(({image,name,description,id,price}) => { %>
-                <section class="container-products">
-                    <div class="product">
-                        <a href="/products/detail/<%- id  %>"><img src="/images/products/<%=image ? image : "default-image.png" %>"></a>
-                        <div class="product__description">
-                            <h3 class="product__title"><%= name %></h3>
-                            <span class="product__price"><%= price %></span>
-                        </div>
-                            <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
-                            <% if (session.user && session.user.rol === 1) { %>
-                                <div class="edit-btn"><a href="/products/edit/<%= id %>">Editar</a> 
-                                    <form action="/products/delete/<%- id %>?_method=DELETE" method="POST" style="display: inline-flex">
-                                        <button type="submit" class="action-button delete">Eliminar</button>
-                                    </form>
-                                </div>
-                             
-                            <% } else { %>
-                            <% } %>
+    <main class="productDetail-main letters ">
+        <div class="section-wrap">
+            <section class="productDetail-main-column-1 products-main">
+                <% database.forEach(({image,name,description,id,price, discount}) => { %>
+                <article class="productDetail-main-column-1-card margin product-width">
+                    <div class="productDetail-main-column-1-card-img">
+                      <img src="/images/products/<%= image ? image : "default-image.png" %>" alt="" class="productDetail-main-column-1-card-img-img">
                     </div>
-                  <!--   <form action="/products/delete/<%- id %>?_method=DELETE" method="POST" style="display: inline-flex">
-                        <button type="submit" class="action-button delete">Eliminar</button>
-                    </form> -->
+                    
+                    <div class="productDetail-card-description">
+                      <%= description %>
+                    </div>
+          
+                    <div class="productDetail-card-price letters">
+                      <%= price === 0? "" : `${price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}` %>
+                    </div>
+          
+                    <div class="productDetail-card-discount">
+                      <%= `%${discount} OFF` %>
+                    </div>
+                </article>
+                <% }) %>
                 </section>
-            <% }) %>
+        </div>
         </main>
         
     <%-include("./partials/footer") %> 

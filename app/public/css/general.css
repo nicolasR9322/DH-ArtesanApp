@@ -28,7 +28,7 @@
     }
 
     body{
-      background: url("/images/fondoPatron.jpg"); 
+      background: url("/images/fondoPatron.jpg");
     }
 .is-valid{
   border: 3px solid green !important; 
@@ -37,7 +37,7 @@
   border: 3px solid red !important;
 }
 
-::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 10px;
   }
   ::-webkit-scrollbar-track {

@@ -10,76 +10,29 @@
             <h2><i class="fa-solid fa-masks-theater"></i>Mis productos</h2>
             <article>
                 <div class="cartProduct" id="cartProduct">
-                    <div class="item">
-                        <h3>Producto</h3>
-                        <img src="/images/imagePlaceholder.jpg" alt="">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aspernatur blanditiis, ipsum tempora delectus porro sapiente nulla nostrum obcaecati quis facilis eos aliquam vitae, distinctio cupiditate nesciunt rerum aliquid corporis.</p>
-                        <div class="toggleCartProductBtn">
-                            <button class="cartRemove">-</button>
-                            <span class="counter" id="counter1">0</span>
-                            <button class="cartAdd">+</button>
-                        </div>
-                        <div class="cartPrice">$1000</div>
-                        <button class="cartProductDelete">
-                            <i class="fa-solid fa-trash-can"></i>                    
-                        </button>
-                    </div>
-                    <div class="item">
-                        <h3>Producto</h3>
-                        <img src="/images/imagePlaceholder.jpg" alt="">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aspernatur blanditiis, ipsum tempora delectus porro sapiente nulla nostrum obcaecati quis facilis eos aliquam vitae, distinctio cupiditate nesciunt rerum aliquid corporis.</p>
-                        <div class="toggleCartProductBtn">
-                            <button class="cartRemove">-</button>
-                            <span class="counter" id="counter2">0</span>
-                            <button class="cartAdd">+</button>
-                        </div>
-                        <div class="cartPrice">$1000</div>
-                        <button class="cartProductDelete">
-                            <i class="fa-solid fa-trash-can"></i>                    
-                        </button>
-                    </div>
-                    <div class="item">
-                        <h3>Producto</h3>
-                        <img src="/images/imagePlaceholder.jpg" alt="">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aspernatur blanditiis, ipsum tempora delectus porro sapiente nulla nostrum obcaecati quis facilis eos aliquam vitae, distinctio cupiditate nesciunt rerum aliquid corporis.</p>
-                        <div class="toggleCartProductBtn">
-                            <button class="cartRemove">-</button>
-                            <span class="counter" id="counter3">0</span>
-                            <button class="cartAdd">+</button>
-                        </div>
-                        <div class="cartPrice">$1000</div>
-                        <button class="cartProductDelete">
-                            <i class="fa-solid fa-trash-can"></i>                    
-                        </button>
-                    </div>
-                    <div class="item">
-                        <h3>Producto</h3>
-                        <img src="/images/imagePlaceholder.jpg" alt="">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aspernatur blanditiis, ipsum tempora delectus porro sapiente nulla nostrum obcaecati quis facilis eos aliquam vitae, distinctio cupiditate nesciunt rerum aliquid corporis.</p>
-                        <div class="toggleCartProductBtn">
-                            <button class="cartRemove">-</button>
-                            <span class="counter" id="counter4">0</span>
-                            <button class="cartAdd">+</button>
-                        </div>
-                        <div class="cartPrice">$1000</div>
-                        <button class="cartProductDelete">
-                            <i class="fa-solid fa-trash-can"></i>                    
-                        </button>
-                    </div>
-                    <div class="item">
-                        <h3>Producto</h3>
-                        <img src="/images/imagePlaceholder.jpg" alt="">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aspernatur blanditiis, ipsum tempora delectus porro sapiente nulla nostrum obcaecati quis facilis eos aliquam vitae, distinctio cupiditate nesciunt rerum aliquid corporis.</p>
-                        <div class="toggleCartProductBtn">
-                            <button class="cartRemove">-</button>
-                            <span class="counter" id="counter5">0</span>
-                            <button class="cartAdd">+</button>
-                        </div>
-                        <div class="cartPrice">$1000</div>
-                        <button class="cartProductDelete">
-                            <i class="fa-solid fa-trash-can"></i>                    
-                        </button>
-                    </div>
+                    
+                        <% if (typeof cartProducts == "undefined") { %>
+                            <h2> No hay productos en su carrito</h2>
+                        <% } else { %>
+                            <% cartProducts.forEach(product => { %>
+                                <div class="item">
+                                <h3>Producto</h3>
+                                <img src="/images/products/<%= product.image %>" alt="">
+                                <p><%= product.description %></p>
+                                <div class="toggleCartProductBtn">
+                                    <button class="cartRemove">-</button>
+                                    <span class="counter" id="counter1">1</span>
+                                    <button class="cartAdd">+</button>
+                                </div>
+                                <div class="cartPrice"><%= product.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></div>
+                                <button class="cartProductDelete">
+                                    <i class="fa-solid fa-trash-can"></i>                    
+                                </button>
+                                </div>
+                            <% }) %>
+                        <% } %>
+                        
+                   
                     
                     <button type="button" class="cartbtn" id="cartProductBtn"><i class="fa-solid fa-chevron-down"></i></button>
                 </div>
@@ -230,7 +183,9 @@
                 </div>
                 <div class="cartCalculationTotal">
                     <span>Total :</span>
-                    <span class="cartCalculationMoney">$1000</span>
+                    <span class="cartCalculationMoney">
+                        <%= definitivePrice.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %>
+                    </span>
                 </div>
             </article>
             <div class="cartFinalBtnDiv">
@@ -247,36 +202,17 @@
         <section class="cartOtherProducts">
             <h2><i class="fa-solid fa-trophy"></i>Otros productos similares</h2>
             <article class="cartOtherProductsFlex">
-                <div>
-                    <img src="/images/imagePlaceholder.jpg" alt="">
-                    <h4>nombre del producto</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis laborum et beatae eligendi dicta vel corporis veniam, eveniet labore explicabo!</p>
-                </div>
-                <div>
-                    <img src="/images/imagePlaceholder.jpg" alt="">
-                    <h4>nombre del producto</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis laborum et beatae eligendi dicta vel corporis veniam, eveniet labore explicabo!</p>
-                </div>
-                <div>
-                    <img src="/images/imagePlaceholder.jpg" alt="">
-                    <h4>nombre del producto</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis laborum et beatae eligendi dicta vel corporis veniam, eveniet labore explicabo!</p>
-                </div>
-                <div>
-                    <img src="/images/imagePlaceholder.jpg" alt="">
-                    <h4>nombre del producto</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis laborum et beatae eligendi dicta vel corporis veniam, eveniet labore explicabo!</p>
-                </div>
-                <div>
-                    <img src="/images/imagePlaceholder.jpg" alt="">
-                    <h4>nombre del producto</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis laborum et beatae eligendi dicta vel corporis veniam, eveniet labore explicabo!</p>
-                </div>
+                <% others.forEach(product => { %>
+                    <div class="productDetail-others-container-img">
+                      <a href="http://localhost:3030/products/detail/<%= product.id %>">
+                        <img src="/images/products/<%= product.image %>" alt="" class="imgdetail">
+                      </a>
+                    </div>
+                  <% }) %>
             </article>
         </section>
         </main>
         <%-include("./partials/footer") %> 
-        <%-include("./partials/scripts") %> 
     <script src="/js/cart.js"></script>
 </body>
 </html>

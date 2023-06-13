@@ -186,6 +186,14 @@ main.register-main .btn-submit:hover {
 #nameErrors, #emailErrors,#pass1Errors,#pass2Errors,#avatarErrors{
     color: red;
 }
+
+.google-icon{
+    width: 50%;
+    transition: all 1s ease;
+}
+.google-icon:hover{
+    transform: scale(1.2);
+}
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 400px) {

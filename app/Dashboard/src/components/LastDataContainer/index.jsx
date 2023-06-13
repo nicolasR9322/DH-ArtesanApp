@@ -25,7 +25,7 @@ export const LastDataContainer = ({type, data}) => {
 			setInfoToDisplay({
 				title: "Último usuario agregado: ",
 				name: data.name,
-				imageUrl: `http://localhost:3030/images/avatar/${data.avatar}`,
+				imageUrl: typeof data.socialProvider == "undefined" ? `http://localhost:3030/images/avatar/${data.avatar}` : data.avatar ,
 				description: data.email
 			})
 		}
