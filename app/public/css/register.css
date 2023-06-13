@@ -188,11 +188,17 @@ main.register-main .btn-submit:hover {
 }
 
 .google-icon{
-    width: 50%;
+    width: 50% ;
     transition: all 1s ease;
 }
 .google-icon:hover{
     transform: scale(1.2);
+}
+
+.register-correction img{
+    width: 100%;
+    height: auto;
+    margin: 1rem auto;
 }
 /* MEDIA QUERIES */
 

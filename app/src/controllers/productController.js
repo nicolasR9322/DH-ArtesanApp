@@ -153,12 +153,10 @@ module.exports = {
 
             Promise.all([PRODUCTFOUND,CATEGORIESALL])
             .then((PRODUCTFOUND,CATEGORIESALL) => {
-                if(req.file){
-                    fs.existsSync(`./public/images/products/${PRODUCTFOUND[0].image}`) && fs.unlinkSync(`./public/images/products/${PRODUCTFOUND[0].image}`)  
-                }
+                console.log(PRODUCTFOUND)
                 database.update({
                     ...PRODUCTFOUND.dataValues,
-                    image: req.file ? req.file.filename : "placeholder.png",
+                    image: req.file ? req.file.filename : PRODUCTFOUND.image,
                     categories: CATEGORIESALL
                 }, {
                     where: {

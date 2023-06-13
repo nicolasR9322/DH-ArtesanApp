@@ -41,7 +41,8 @@ const productRouter = require("./routes/productRouter");
 const usersRouter = require("./routes/usersRouter");
 const cartRouter = require("./routes/cartRouter");
 const adminRouter = require("./routes/admin");
-const authRouter = require("./routes/auth")
+const authRouter = require("./routes/auth");
+const cartApi = require("./routes/apis/cartApi");
 
 // apis routes
 const mainApi = require("./routes/apis/main");
@@ -58,7 +59,8 @@ app.use("/auth", authRouter);
 // api
 
 app.use("/api", mainApi);
-app.use("/api", userAPI)
+app.use("/api", userAPI);
+app.use("/api/cart", cartApi);
 
 // catch error
 

@@ -54,7 +54,28 @@
             </form>
           </div>
         </div>
-
+        
+        <%if (typeof session.user != "undefined" && session.user.rol === 1) { %>
+          <div class="links-delete-update">
+            <div >
+              <a href="/products/edit/<%= id %>">
+                <button class="link-update-product">
+                  editar producto
+                </button>
+              </a>
+            </div>
+            
+            <div>
+              <form action="/products/delete/<%= id %>?_method=DELETE" method="post">
+                <button class="link-delete-product" type="submit">
+                  borrar producto
+                </button>
+              </form>
+              
+            </div>
+          </div>
+          
+        <% } %>
       </article>
       
 

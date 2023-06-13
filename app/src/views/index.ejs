@@ -44,7 +44,7 @@
         <div class="section-wrap">
             <h2 class="main-title"> Ofertas Imperdibles</h2>
             <section class="main-sales">
-            <% sales.forEach(({image,name,description,id,price}) => { %>
+            <% sales.forEach(({image,name,description,id,price,discount}) => { %>
                 <article class="main-section-article">
                     <div class="main-section-article-product">
                         <a href="/products/detail/<%- id  %>"><img src="/images/products/<%=image ? image : 'default-image.png' %>"></a>
@@ -54,6 +54,9 @@
                             <span class="product__price"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
+                    </div>
+                    <div class="productDetail-card-discount index-correction">
+                        <%= `%${discount} OFF` %>
                     </div>
                 </article>
                     <% }) %>
@@ -70,7 +73,7 @@
         <div class="section-wrap">
                  <h2 class="main-title"> Ultimos productos agregados</h2>
        <section class="main-sales">
-            <% latest.forEach(({image,name,description,id,price}) => { %>
+            <% latest.forEach(({image,name,description,id,price,discount}) => { %>
                 <article class="main-section-article">
                     <div class="main-section-article-product">
                         <a href="/products/detail/<%- id  %>"><img src="/images/products/<%=image ? image : 'default-image.png' %>"></a>
@@ -81,6 +84,9 @@
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
                     </div>
+                    <div class="productDetail-card-discount index-correction">
+                        <%= `%${discount} OFF` %>
+                    </div>
                 </article>
                     <% }) %>
                 </section>
@@ -89,7 +95,7 @@
             <div class="section-wrap">
         <h2 class="main-title"> Nuestros Productos</h2>
        <section class="main-sales">
-            <% product.forEach(({image,name,description,id,price}) => { %>
+            <% product.forEach(({image,name,description,id,price,discount}) => { %>
                 <article class="main-section-article">
                     <div class="main-section-article-product">
                         <a href="/products/detail/<%- id  %>"><img src="/images/products/<%=image ? image : 'default-image.png' %>"></a>
@@ -99,6 +105,9 @@
                             <span class="product__price"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
+                    </div>
+                    <div class="productDetail-card-discount index-correction">
+                        <%= `%${discount} OFF` %>
                     </div>
                 </article>
                     <% }) %>

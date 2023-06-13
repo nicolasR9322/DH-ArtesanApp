@@ -32,6 +32,10 @@ section article img {
     border-radius: 10px;
 } 
 
+.index-correction{
+    top: 5% !important;
+    left: 5% !important;
+}
 
 section.main-sales{
     display: flex;
@@ -63,6 +67,8 @@ article.main-section-article {
     justify-content: space-evenly;
     align-items: center;
     cursor: pointer;
+    position: relative;
+    
 }
 
 div.main-section-article-product {

@@ -10,6 +10,10 @@ main.product-create{
     margin-top: 5rem;
 }
 
+
+.imagen-preview{
+    width: 300px;
+}
 main.product-create form.product-create-form{
     display: flex;
     flex-direction: column;
@@ -18,12 +22,23 @@ main.product-create form.product-create-form{
     border: 1px solid black;
     border-radius: 5px;
     justify-content: space-evenly;
+    align-items: center;
     background: linear-gradient(var(--verde), var(--blanco), var(--violeta));
     
 }
 main.product-create form.product-create-form label{
     padding: 2rem;
     display: block;
+    text-align: center;
+}
+
+main.product-create form.product-create-form div{
+    text-align: center;
+
+}
+
+main.product-create form.product-create-form div span{
+color: red;
 }
 
 main.product-create form.product-create-form label input {
@@ -69,10 +84,14 @@ main.product-create form.product-create-form div.product-create-div-button butto
 @media screen and (min-width:768px){
     main.product-create form.product-create-form{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-evenly;
         padding: 3rem;
+    }
+    main.product-create form.product-create-form{
+        width: 60%;
+        margin: 0 auto;
     }
     
 }

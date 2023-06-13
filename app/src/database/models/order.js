@@ -25,8 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   order.init({
-    date: DataTypes.INTEGER,
-    total: DataTypes.INTEGER,
+    date: {type : DataTypes.INTEGER, defaultValue: new Date()},
+    total: {type : DataTypes.INTEGER, defaultValue: 0},
     userId: DataTypes.INTEGER,
     status: {
       type: DataTypes.STRING,

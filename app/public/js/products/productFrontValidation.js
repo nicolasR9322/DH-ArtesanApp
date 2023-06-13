@@ -62,7 +62,7 @@ window.addEventListener("load", () => {
         } else {
             if($fileInput.files && $fileInput.files[0]){
                 let reader = new FileReader();
-                reader.onload = (e) => $preview.innerHTML = `<img src="${e.target.result}"/>`;
+                reader.onload = (e) => $preview.innerHTML = `<img src="${e.target.result}" class="imagen-preview"/>`;
                 reader.readAsDataURL($fileInput.files[0]);
                 $fileErrors.innerText = "";
                 $fileInput.classList.remove("is-invalid");

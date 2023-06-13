@@ -208,6 +208,11 @@ module.exports = {
 
         let data = database.findByPk(userId)
             .then((user) => {
+                console.log(user)
+                console.log(userId)
+                console.log(req.file)
+                console.log(req.body)
+
                 return res.send(errors)
                 res.render("userProfile", {
                     session:req.session,

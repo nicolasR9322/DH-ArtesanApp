@@ -21,7 +21,10 @@ main.profile-main form.profile-form-main label{
     color: var(--blanco);
     padding: 1rem;
     border-radius: 5px;
+    width: 100%;
 }
+
+
 
 main.profile-main div.profile-div span{
   color: red;
@@ -111,26 +114,56 @@ main.profile-main button.profile-update-button{
     background-color: #555;
   }
 
-  .input-style{
-
+  main.profile-main .input-style{
+    display: none;
   }
 
-  .no#input{}
+  
 
-  .no{
+  main.profile-main .input-container{
     height: 100px;
     box-shadow: inset 7px -7px 16px var(--violeta);
     font-family: var(--Nerko);
     border-radius: 50%;
     background: var(--blanco) !important;
     margin: 1rem auto;
-    display: block;
-    width: 50%;
-    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 50%;
+    max-width: 250px;
+  }
+
+  main.profile-main .input-container label.no{
+    background: none !important;
+    color: black !important;
+    border: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main.profile-main .input-container input{
+    display: none;
+    
   }
 
   #avatarPreview img{
     width: 200px; 
     height: 250px;
     object-fit: cover;
+  }
+
+  @media screen and (min-width:768px){
+    main.profile-main form.profile-form-main{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main.profile-main form.profile-form-main span{
+      text-align: center;
+    }
+    
   }

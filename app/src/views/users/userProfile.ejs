@@ -10,33 +10,33 @@
                 <label for="name">Cambiar nombre
                     <input type="text" name="name" value="<%= locals.old && old.name ? old.name : name %>" id="name">
                 </label>
-                <% if (locals.errors && errors.name) { %>
-                    <span class="error-message" id="nameErrors"><%= errors.name.msg %></span>
-                    <% }else { %>
-                        <span id="nameErrors"></span>
-                    <% } %>
             </div>
+            <% if (locals.errors && errors.name) { %>
+                <span class="error-message" id="nameErrors"><%= errors.name.msg %></span>
+                <% }else { %>
+                    <span id="nameErrors"></span>
+                <% } %>
             <div class="profile-div">
                 <label for="pass">Cambiar password
                     <input type="password" name="pass" value="<%= locals.old && old.pass ? old.pass : pass %>" id="pass">
                 </label>
-                <% if (locals.errors && errors.pass) { %>
-                    <span class="error-message"><%= errors.pass.msg %></span>
-                    <% }else { %>
-                        <span id="pass1Errors"></span>
-                    <% } %>
             </div>
-            <div class="input-container">
+            <% if (locals.errors && errors.pass) { %>
+                <span class="error-message"><%= errors.pass.msg %></span>
+                <% }else { %>
+                    <span id="pass1Errors"></span>
+                <% } %>
+            <!-- <div class="input-container">
                 <label for="avatar" class="no">
                     Subir imagen
                     <input class="input-style" type="file" name="avatar" id="avatar" value="<%= avatar %>">
                 </label>
-                <% if (locals.errors && errors.avatar) { %>
-                    <span class="error-message"><%= errors.avatar.msg %></span>
-                    <% }else { %>
-                        <span id="avatarErrors"></span>
-                    <% } %>
             </div>
+            <% if (locals.errors && errors.avatar) { %>
+                <span class="error-message"><%= errors.avatar.msg %></span>
+                <% }else { %>
+                    <span id="avatarErrors"></span>
+                <% } %> -->
             <div id="avatarPreview">
 
             </div>

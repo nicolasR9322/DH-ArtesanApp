@@ -10,6 +10,9 @@ main.product-edit{
     margin-top: 5rem;
 }
 
+.imagen-preview{
+    width: 300px;
+}
 main.product-edit form.product-edit-form{
     display: flex;
     flex-direction: column;
@@ -25,6 +28,16 @@ main.product-edit form.product-edit-form label{
     padding: 2rem;
     display: block;
 }
+
+main.product-edit form.product-edit-form div{
+    text-align: center;
+
+}
+
+main.product-edit form.product-edit-form div span{
+color: red;
+}
+
 
 main.product-edit form.product-edit-form label input {
     display: block;
@@ -69,10 +82,12 @@ main.product-edit form.product-edit-form div.product-edit-div-button button{
 @media screen and (min-width:768px){
     main.product-edit form.product-edit-form{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-evenly;
         padding: 3rem;
+        width: 60%;
+        margin: 0 auto;
     }
     
 }

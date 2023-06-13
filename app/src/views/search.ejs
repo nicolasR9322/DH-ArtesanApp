@@ -10,7 +10,7 @@
 
         <section class="main-sales">
         <% if (searchResult.length != 0 ) { %>
-            <% searchResult.forEach(({image,name,description,id,price}) => { %>
+            <% searchResult.forEach(({image,name,description,id,price,discount}) => { %>
                 <article class="main-section-article">
                     <div class="main-section-article-product">
                         <a href="/products/detail/<%- id  %>"><img src="/images/products/<%=image ? image : 'default-image.png' %>"></a>
@@ -21,6 +21,10 @@
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
                     </div>
+                </div>
+                <div class="productDetail-card-discount index-correction">
+                    <%= `%${discount} OFF` %>
+                </div>
                 </article>
                     <% }) %>
                 </section>
@@ -28,8 +32,8 @@
             <div class="not-found">
                 <h2 class="error-msg">
                     <!-- <iframe src="https://gifer.com/embed/40Oj" width=480 height=466.286 frameBorder="0" allowFullScreen></iframe> -->
-                    <div style="padding-top:97.143%;position:relative;"><iframe src="https://gifer.com/embed/40Oj" width="100%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0" allowFullScreen></iframe></div>
                     <p>Ningun elemento coincide con su busqueda</p>
+                    <div style="padding-top:97.143%;position:relative;"><iframe src="https://gifer.com/embed/40Oj" width="100%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0" allowFullScreen></iframe></div>
                 <h2>
             </div>
         <% } %>
