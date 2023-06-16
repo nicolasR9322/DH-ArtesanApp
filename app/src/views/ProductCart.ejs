@@ -18,13 +18,14 @@
                                 <div class="item">
                                 <h3>Producto</h3>
                                 <img src="/images/products/<%= product.image %>" alt="">
-                                <p><%= product.description %></p>
+                                <p class="text-center"><%= product.description %></p>
                                 <div class="toggleCartProductBtn">
                                     <button class="cartRemove">-</button>
                                     <span class="counter" id="counter1">1</span>
                                     <button class="cartAdd">+</button>
                                 </div>
-                                <div class="cartPrice"><%= product.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></div>
+                                <div class="price-text-strikethrough"><%= product.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></div>
+                            <span class="product__price"><%= (product.price - (product.price*product.discount/100)).toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
                                 <button class="cartProductDelete">
                                     <i class="fa-solid fa-trash-can"></i>                    
                                 </button>

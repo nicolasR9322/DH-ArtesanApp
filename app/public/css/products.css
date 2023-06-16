@@ -27,6 +27,7 @@
 }
 
 .margin div.productDetail-main-column-1-card-img img.productDetail-main-column-1-card-img-img{
+    object-fit: cover;
 
 }
 /* MEDIAQUERY START */
@@ -36,12 +37,10 @@
         flex-direction: row !important;
     }
     .product-width{
-        width: 40% !important; 
     }
 }
 @media screen and (min-width:1024px){
     .product-width{
-        width: 25% !important;
         
     }
 }

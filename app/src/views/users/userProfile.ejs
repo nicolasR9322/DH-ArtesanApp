@@ -26,17 +26,17 @@
                 <% }else { %>
                     <span id="pass1Errors"></span>
                 <% } %>
-            <!-- <div class="input-container">
+            <div class="input-container">
                 <label for="avatar" class="no">
                     Subir imagen
-                    <input class="input-style" type="file" name="avatar" id="avatar" value="<%= avatar %>">
+                    <input class="input-style" type="file" name="avatar" id="avatar" value="<%= locals.old && old.avatar ? old.avatar : avatar  %>">
                 </label>
             </div>
             <% if (locals.errors && errors.avatar) { %>
                 <span class="error-message"><%= errors.avatar.msg %></span>
                 <% }else { %>
                     <span id="avatarErrors"></span>
-                <% } %> -->
+                <% } %>
             <div id="avatarPreview">
 
             </div>

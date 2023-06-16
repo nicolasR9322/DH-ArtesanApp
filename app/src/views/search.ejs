@@ -17,7 +17,8 @@
                         <div class="show-more"><a href="/products/detail/<%- id  %>">Ver Más</a></div>
                         <div class="product__description">
                             <h3 class="product__title"><%= name %></h3>
-                            <span class="product__price"><%= price %></span>
+                            <div class="price-text-strikethrough"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></div>
+                            <span class="product__price"><%= (price - (price*discount/100)).toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
                     </div>

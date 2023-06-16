@@ -35,7 +35,7 @@ export const Sidebar = () => {
 
         {/* <!-- Nav Items --> */}
        
-        <NavItem href="/" icon="fa-box" name="ABM - Productos"/>
+        {/* <NavItem href="/" icon="fa-box" name="ABM - Productos"/> */}
         <NavItem href="" icon="fa-star" name={<Link className={styles.links} to="/products">Listado de productos</Link>}/>
 
         {/* <!-- Divider --> */}

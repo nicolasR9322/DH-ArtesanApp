@@ -27,6 +27,7 @@ module.exports = {
                 Artesanias : categoriesOne("Artesanias", 2).length,
                 Pinturas: categoriesOne("Pinturas", 3).length,
                 Esculturas: categoriesOne("Esculturas", 4).length,
+                Ropa: categoriesOne("Ropa", 5).length
                 },
                 url : "/api/products",
                 products: products,

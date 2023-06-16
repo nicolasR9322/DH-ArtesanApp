@@ -18,7 +18,8 @@
                     </div>
           
                     <div class="productDetail-card-price letters">
-                      <%= price === 0? "" : `${price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}` %>
+                      <div class="price-text-strikethrough"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></div>
+                      <span class="product__price"><%= (price - (price*discount/100)).toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
                     </div>
           
                     <div class="productDetail-card-discount">

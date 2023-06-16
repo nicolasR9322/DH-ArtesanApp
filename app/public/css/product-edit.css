@@ -34,6 +34,11 @@ main.product-edit form.product-edit-form div{
 
 }
 
+main.product-edit form.product-edit-form div.column{
+    display: flex;
+    flex-direction: column;
+}
+
 main.product-edit form.product-edit-form div span{
 color: red;
 }
@@ -86,7 +91,6 @@ main.product-edit form.product-edit-form div.product-edit-div-button button{
         flex-wrap: wrap;
         justify-content: space-evenly;
         padding: 3rem;
-        width: 60%;
         margin: 0 auto;
     }
     
@@ -100,5 +104,27 @@ main.product-edit form.product-edit-form div.product-edit-div-button button{
         }
     main.product-edit form.product-edit-form label input{
         height: 25px;
+        margin: 0;
+        width: 100%;
+    }
+    main.product-edit form.product-edit-form label{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    main.product-edit form.product-edit-form label div{
+        width: 100%;
+        display: block;
+    }
+    main.product-edit form.product-edit-form div.column{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+    div label div span#fileErrors{
+        font-size: 1rem !important;
+        background: black;
+        display: flex;
     }
 }

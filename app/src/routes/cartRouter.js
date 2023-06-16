@@ -8,6 +8,6 @@ const checkAdmin = require("../middlewares/checkAdmin");
 const checkSession = require("../middlewares/checkUserInSession");
 
 // route
-router.get("/",checkAdmin,controller.cart)
+router.get("/",checkSession,controller.cart)
 
 module.exports = router;

@@ -11,9 +11,8 @@
     <!-- Full-width images with number and caption text -->
     <% banner.forEach(imagen => { %>
         <div class="mySlides fade">
-          <div class="numbertext">`<%= imagen.id %> / <%= banner.length %>`</div>
+          <div class="numbertext"><%= imagen.id %> / <%= banner.length %></div>
           <img src="/images/banner/<%= imagen.name %>" class="slider-image">
-          <div class="text"><%= imagen.name %></div>
         </div>
      
     <% }) %>
@@ -51,7 +50,8 @@
                         <div class="show-more"><a href="/products/detail/<%- id  %>">Ver Más</a></div>
                         <div class="product__description">
                             <h3 class="product__title"><%= name %></h3>
-                            <span class="product__price"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
+                            <div class="price-text-strikethrough"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></div>
+                            <span class="product__price"><%= (price - (price*discount/100)).toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
                     </div>
@@ -80,7 +80,8 @@
                         <div class="show-more"><a href="/products/detail/<%- id  %>">Ver Más</a></div>
                         <div class="product__description">
                             <h3 class="product__title"><%= name %></h3>
-                            <span class="product__price"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
+                            <div class="price-text-strikethrough"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></div>
+                            <span class="product__price"><%= (price - (price*discount/100)).toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
                     </div>
@@ -102,7 +103,8 @@
                         <div class="show-more"><a href="/products/detail/<%- id  %>">Ver Más</a></div>
                         <div class="product__description">
                             <h3 class="product__title"><%= name %></h3>
-                            <span class="product__price"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
+                            <div class="price-text-strikethrough"><%= price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></div>
+                            <span class="product__price"><%= (price - (price*discount/100)).toLocaleString('en-US', {style: 'currency', currency: 'USD'}) %></span>
                         </div>
                             <i class="product__icon fa-sharp fa-solid fa-cart-plus"></i>
                     </div>

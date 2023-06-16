@@ -150,12 +150,13 @@ module.exports = {
                 })
             })
     },
-    updateProfile: (req,res) => {
+    updateProfile: async (req,res) => {
         let userDB = db.Users;
         let errors = validationResult(req);
         let userId = req.session.user.id;
+        const userSession = req.session.user;
         
-        if(req.fileValidationError){
+        /* if(req.fileValidationError){
             errors.errors.push({
                 value:"",
                 msg: req.fileValidationError,
@@ -170,14 +171,14 @@ module.exports = {
                 param: "avatar",
                 location:"file"
             })
-           }
+           } */
 
 
         if(errors.isEmpty()){
-            const {name,pass} = req.body;
+            const {name,pass,avatar} = req.body;
 
             
-            let users = userDB.findByPk(userId)
+           /*  let users = userDB.findByPk(userId)
             .then((user) => {
                 if(req.file){
                     fs.existsSync(`./public/images/avatar/${user.avatar}`) && fs.unlinkSync(`./public/images/avatar/${user.avatar}`)  
@@ -185,7 +186,7 @@ module.exports = {
                 userDB.update({
                      name,
                      pass,
-                     avatar: req.file ? req.file.filename : "default-image.png"
+                     avatar: req.file ? req.file.filename : avatar,
                     },{
                         where:{
                             id: userId
@@ -198,9 +199,49 @@ module.exports = {
                     
                     req.session.user = user
                     
+                    res.cookie("userArtesanApp",user,{maxAge:-1})
+
                     return res.redirect("/users/showProfile")
                 })
-            })
+            }) */
+
+
+        try {
+                let user = await userDB.findByPk(userId);
+
+            if (req.file) {
+                    fs.existsSync(`./public/images/avatar/${user.avatar}`) && fs.unlinkSync(`./public/images/avatar/${user.avatar}`);
+                }
+
+                await userDB.update(
+                    {
+                    name,
+                    pass,
+                    avatar: req.file ? req.file.filename : avatar,
+                    },
+                    {
+                    where: {
+                        id: userId,
+                    },
+                    }
+                );
+
+                // Recuperamos los datos actualizados de la base de datos
+                user = await userDB.findByPk(userId);
+                delete user.pass;
+
+                // Guardamos los nuevos datos en la base de datos
+                await user.save();
+
+                req.session.user = user;
+                res.cookie("userArtesanApp", user, { maxAge: -1 });
+
+                return res.redirect("/users/showProfile");
+        } catch (error) {
+                console.log(error);
+                res.status(500).send({ message: "Ha habido un error al actualizar el usuario." });
+                }
+
         }else {
         let userId = req.session.user.id;
 
@@ -208,11 +249,11 @@ module.exports = {
 
         let data = database.findByPk(userId)
             .then((user) => {
+                console.log(req.file)
                 console.log(user)
                 console.log(userId)
-                console.log(req.file)
                 console.log(req.body)
-
+                console.log(user.avatar)
                 return res.send(errors)
                 res.render("userProfile", {
                     session:req.session,

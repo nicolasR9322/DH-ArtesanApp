@@ -28,7 +28,7 @@
     }
 
     body{
-      background: url("/images/fondoPatron.jpg");
+      background: url("/images/fondoPatron.jpg") !important;
     }
 .is-valid{
   border: 3px solid green !important; 
@@ -36,7 +36,10 @@
 .is-invalid{
   border: 3px solid red !important;
 }
-
+.price-text-strikethrough{
+  text-decoration: line-through greenyellow;
+  color: var(--blanco);
+}
   ::-webkit-scrollbar {
     width: 10px;
   }

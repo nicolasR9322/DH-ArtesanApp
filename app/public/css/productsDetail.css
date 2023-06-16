@@ -12,6 +12,7 @@ main.productDetail-main{
 
 .links-delete-update{
   display: flex;
+  justify-content: space-around;
 }
 .link-update-product, .link-delete-product{
   padding: 1rem;
@@ -105,6 +106,7 @@ section.productDetail-main-column-1 article.productDetail-main-column-1-otherPro
   display: flex;
   justify-content: center;
   align-items: center;
+  object-fit: contain;
 }
 
 .imgdetail{

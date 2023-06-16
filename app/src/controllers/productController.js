@@ -138,24 +138,28 @@ module.exports = {
                 })
 
     },
-    update:(req,res) => {
+    update: async (req,res) => {
         const {id} = req.params;
 
         const database = db.products;
-
+        const {name,price,description,discount,categoriesId} = req.body
         let errors = validationResult(req);
 
         if(errors.isEmpty()){
 
-        const PRODUCTFOUND =  database.findByPk(id);
-        const CATEGORIESALL = db.categories.findAll();
+        const PRODUCTFOUND = await database.findByPk(id);
+        const CATEGORIESALL = await db.categories.findAll();
         let productImage = PRODUCTFOUND.image
 
             Promise.all([PRODUCTFOUND,CATEGORIESALL])
             .then((PRODUCTFOUND,CATEGORIESALL) => {
                 console.log(PRODUCTFOUND)
                 database.update({
-                    ...PRODUCTFOUND.dataValues,
+                    name,
+                    price,
+                    description,
+                    discount,
+                    categoriesId,
                     image: req.file ? req.file.filename : PRODUCTFOUND.image,
                     categories: CATEGORIESALL
                 }, {

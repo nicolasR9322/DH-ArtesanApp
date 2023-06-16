@@ -1,11 +1,12 @@
 const db = require("../database/models");
-const { Op } = require("sequelize");
+const { Op, Sequelize } = require("sequelize");
 
 module.exports = {
     index: async (req, res) => {
         console.log(req.session.user)
         const allProducts = await db.products.findAll({
             include: ["categories"],
+            order: Sequelize.literal("rand()"),
             limit: 10
         });
 
